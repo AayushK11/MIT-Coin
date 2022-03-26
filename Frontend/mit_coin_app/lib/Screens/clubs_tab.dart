@@ -17,29 +17,42 @@ class _ClubsTabState extends State<ClubsTab> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Discover student clubs",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontFamily: "Avenir",
-                fontWeight: FontWeight.w800,
-              ),
-            ),
-            SizedBox(
-              width: 305,
-              child: Text(
-                "Be an active part of various student clubs in MIT",
-                style: TextStyle(
-                  color: Color(0xffc4c4c4),
-                  fontSize: 14,
+            Container(
+              padding: EdgeInsets.only(top: 10, bottom: 5),
+              width: MediaQuery.of(context).size.width,
+              child: Container(
+                padding: EdgeInsets.fromLTRB(25, 20, 10, 0),
+                child: Text(
+                  "Discover Student Clubs",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
+                    fontFamily: "Avenir",
+                    fontWeight: FontWeight.w800,
+                  ),
                 ),
               ),
             ),
             Container(
-              margin: EdgeInsets.symmetric(
-                vertical: 10,
+              padding: EdgeInsets.only(bottom: 20),
+              width: MediaQuery.of(context).size.width,
+              child: SizedBox(
+                width: 305,
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(25, 0, 10, 0),
+                  child: Text(
+                    "Be an active part of various student clubs in MIT",
+                    style: TextStyle(
+                      color: Color(0xffc4c4c4),
+                      fontFamily: "Avenir",
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
               ),
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 30),
               child: SingleChildScrollView(
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -47,6 +60,7 @@ class _ClubsTabState extends State<ClubsTab> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
+                      margin: EdgeInsets.only(left: 25),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(47),
                         color: Colors.white,
@@ -64,7 +78,7 @@ class _ClubsTabState extends State<ClubsTab> {
                             "School of Engineering",
                             style: TextStyle(
                               color: Color(0xff212230),
-                              fontSize: 11,
+                              fontSize: 13,
                               fontFamily: "Avenir",
                               fontWeight: FontWeight.w500,
                             ),
@@ -94,7 +108,7 @@ class _ClubsTabState extends State<ClubsTab> {
                             "School of Design",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 11,
+                              fontSize: 13,
                               fontFamily: "Avenir",
                               fontWeight: FontWeight.w500,
                             ),
@@ -124,7 +138,7 @@ class _ClubsTabState extends State<ClubsTab> {
                             "School of Food tech",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 11,
+                              fontSize: 13,
                               fontFamily: "Avenir",
                               fontWeight: FontWeight.w500,
                             ),
@@ -151,7 +165,7 @@ class _ClubsTabState extends State<ClubsTab> {
                             "College of Fine Arts",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 10,
+                              fontSize: 13,
                               fontFamily: "Avenir",
                               fontWeight: FontWeight.w500,
                             ),
@@ -159,6 +173,7 @@ class _ClubsTabState extends State<ClubsTab> {
                         ],
                       ),
                     ),
+                    SizedBox(width: 20),
                   ],
                 ),
                 scrollDirection: Axis.horizontal,
@@ -167,22 +182,28 @@ class _ClubsTabState extends State<ClubsTab> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "MIT School of Engineering",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontFamily: "Avenir",
-                    fontWeight: FontWeight.w800,
+                Container(
+                  margin: EdgeInsets.only(left: 25),
+                  child: Text(
+                    "MIT School of Engineering",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontFamily: "Avenir",
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
                 ),
-                Text(
-                  "(11)",
-                  style: TextStyle(
-                    color: Color(0xffc4c4c4),
-                    fontSize: 14,
-                    fontFamily: "Avenir",
-                    fontWeight: FontWeight.w500,
+                Container(
+                  margin: EdgeInsets.only(right: 25),
+                  child: Text(
+                    "(11)",
+                    style: TextStyle(
+                      color: Color(0xffc4c4c4),
+                      fontSize: 15,
+                      fontFamily: "Avenir",
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ],
@@ -240,13 +261,16 @@ upcomingEvent(context) {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "AI/ML workshop",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontFamily: "Avenir",
-                    fontWeight: FontWeight.w800,
+                Container(
+                  margin: EdgeInsets.only(top: 10),
+                  child: Text(
+                    "AI/ML workshop",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontFamily: "Avenir",
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
                 ),
                 SizedBox(height: 4),
@@ -254,31 +278,61 @@ upcomingEvent(context) {
                   "by Robotics club",
                   style: TextStyle(
                     color: Color(0xffe5e5e5),
-                    fontSize: 14,
+                    fontSize: 18,
+                    fontFamily: "Avenir",
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 24),
+            SizedBox(height: 12),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  "10 Coins",
-                  style: TextStyle(
-                    color: Color(0xffffcd4c),
-                    fontSize: 12,
-                    fontFamily: "Avenir",
-                    fontWeight: FontWeight.w800,
-                  ),
+                Container(
+                  child: (Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: 18,
+                        height: 18,
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/images/LogoFlat.png',
+                              fit: BoxFit.contain,
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(width: 5),
+                      Container(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "15 Coins",
+                          style: TextStyle(
+                            color: Color(0xffffcd4c),
+                            fontSize: 16,
+                            fontFamily: "Avenir",
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )),
                 ),
                 TextButton(
                     onPressed: null,
                     child: Text(
-                      "Learn more >",
+                      "Learn more    ➜",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 12,
+                        fontFamily: "Avenir",
+                        fontSize: 15,
                       ),
                     ))
               ],

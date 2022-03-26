@@ -41,6 +41,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
             Column(
               children: [
                 Container(
+                  margin:
+                      EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 20),
+                  alignment: Alignment.topCenter,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -48,7 +51,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     children: [
                       Container(
                         padding: EdgeInsets.all(20),
-                        width: MediaQuery.of(context).size.width,
+                        width: MediaQuery.of(context).size.width * 0.9,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
                           color: Color(0xff151321),
@@ -85,10 +88,9 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                   Text(
                                     "by Robotics Club",
                                     style: TextStyle(
-                                      color: Color(0xffc0c0c0),
-                                      fontSize: 12,
+                                      color: Color(0xffe5e5e5),
+                                      fontSize: 15,
                                       fontFamily: "Avenir",
-                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                   Row(
@@ -99,19 +101,33 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                         CrossAxisAlignment.center,
                                     children: [
                                       Container(
-                                        width: 16,
-                                        height: 16,
-                                        child: Image.asset(
-                                            'assets/images/logo.png'),
+                                        width: 18,
+                                        height: 18,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Image.asset(
+                                              'assets/images/LogoFlat.png',
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                       SizedBox(width: 5),
-                                      Text(
-                                        "15 Coins",
-                                        style: TextStyle(
-                                          color: Color(0xffffcd4c),
-                                          fontSize: 14,
-                                          fontFamily: "Avenir",
-                                          fontWeight: FontWeight.w800,
+                                      Container(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          "15 Coins",
+                                          style: TextStyle(
+                                            color: Color(0xffffcd4c),
+                                            fontSize: 16,
+                                            fontFamily: "Avenir",
+                                            fontWeight: FontWeight.w800,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -143,18 +159,48 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
+                                      Container(
+                                        width: 14,
+                                        height: 14,
+                                        child: Stack(
+                                          children: [
+                                            Positioned.fill(
+                                              child: Align(
+                                                alignment: Alignment.center,
+                                                child: Container(
+                                                  width: 14,
+                                                  height: 14,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                  ),
+                                                  child: Container(
+                                                    padding: EdgeInsets.all(2),
+                                                    child: Image.asset(
+                                                        'assets/images/Calender.png'),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(width: 6),
                                       Text(
-                                        "12 March 22’",
+                                        "12 Match 22’",
                                         style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 14,
+                                          fontFamily: "Avenir",
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
                                     ],
                                   ),
                                 ),
                                 SizedBox(
-                                  width: 20,
+                                  width: 10,
                                 ),
                                 Container(
                                   margin: EdgeInsets.only(top: 20),
@@ -169,6 +215,34 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
+                                      Container(
+                                        width: 14,
+                                        height: 14,
+                                        child: Stack(
+                                          children: [
+                                            Positioned.fill(
+                                              child: Align(
+                                                alignment: Alignment.topLeft,
+                                                child: Container(
+                                                  width: 14,
+                                                  height: 14,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            8),
+                                                  ),
+                                                  child: Container(
+                                                    padding: EdgeInsets.all(2),
+                                                    child: Image.asset(
+                                                        'assets/images/Clock.png'),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(width: 6),
                                       Text(
                                         "4:00 PM",
                                         style: TextStyle(
@@ -188,245 +262,192 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width,
+                  width: MediaQuery.of(context).size.width * 0.9,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
                     color: Color(0xff151321),
                   ),
-                  padding: const EdgeInsets.all(16),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Your balance",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontFamily: "Avenir",
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          SizedBox(width: 103),
-                          Row(
+                  child: Container(
+                    padding: EdgeInsets.all(20),
+                    // width: MediaQuery.of(context).size.width * 0.9,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          child: Row(
                             mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                width: 20,
-                                height: 20,
-                                padding: const EdgeInsets.only(
-                                  bottom: 5,
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  "Your balance",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontFamily: "Avenir",
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
-                                child: Column(
+                              ),
+                              SizedBox(width: 122),
+                              Container(
+                                child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Transform.rotate(
-                                      angle: 3.14,
-                                      child: Container(
-                                        width: 15.38,
-                                        height: 15.38,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
+                                    Container(
+                                      width: 18,
+                                      height: 18,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Image.asset(
+                                            'assets/images/LogoFlat.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(width: 5),
+                                    Container(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        "100 Coins",
+                                        style: TextStyle(
                                           color: Color(0xffffcd4c),
+                                          fontSize: 16,
+                                          fontFamily: "Avenir",
+                                          fontWeight: FontWeight.w800,
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(height: 1809.09),
-                                    Container(
-                                      width: 20,
-                                      height: 20,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        gradient: LinearGradient(
-                                          begin: Alignment.centerRight,
-                                          end: Alignment.centerLeft,
-                                          colors: [
-                                            Color(0xffffcd4c),
-                                            Color(0xfff3af00)
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 1809.09),
-                                    Container(
-                                      width: 8.75,
-                                      height: 7.07,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(8),
-                                      ),
-                                      child:
-                                          FlutterLogo(size: 7.067306041717529),
                                     ),
                                   ],
                                 ),
                               ),
-                              SizedBox(width: 5),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 24),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
                               Text(
-                                "500 Coins",
+                                "AI/ML workshop",
                                 style: TextStyle(
-                                  color: Color(0xffffcd4c),
-                                  fontSize: 16,
+                                  color: Color(0xffff7272),
+                                  fontSize: 18,
                                   fontFamily: "Avenir",
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              SizedBox(width: 100),
+                              Container(
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      width: 18,
+                                      height: 18,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: [
+                                          Image.asset(
+                                            'assets/images/LogoFlat.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(width: 5),
+                                    Container(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        "15 Coins",
+                                        style: TextStyle(
+                                          color: Color(0xffffcd4c),
+                                          fontSize: 16,
+                                          fontFamily: "Avenir",
+                                          fontWeight: FontWeight.w800,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
                           ),
-                        ],
-                      ),
-                      SizedBox(height: 24),
-                      Container(
-                        width: 296,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "AI/ML workshop",
-                              style: TextStyle(
-                                color: Color(0xffff7272),
-                                fontSize: 16,
-                                fontFamily: "Avenir",
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            SizedBox(width: 85),
-                            Container(
-                              width: 100,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    width: 20,
-                                    height: 20,
-                                    padding: const EdgeInsets.only(
-                                      bottom: 5,
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Transform.rotate(
-                                          angle: 3.14,
-                                          child: Container(
-                                            width: 15.38,
-                                            height: 15.38,
-                                            decoration: BoxDecoration(
-                                              shape: BoxShape.circle,
-                                              color: Color(0xffffcd4c),
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 1786.09),
-                                        Container(
-                                          width: 20,
-                                          height: 20,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            gradient: LinearGradient(
-                                              begin: Alignment.centerRight,
-                                              end: Alignment.centerLeft,
-                                              colors: [
-                                                Color(0xffffcd4c),
-                                                Color(0xfff3af00)
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        SizedBox(height: 1786.09),
-                                        Container(
-                                          width: 8.75,
-                                          height: 7.07,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                          ),
-                                          child: FlutterLogo(
-                                              size: 7.067306041717529),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(width: 5),
-                                  Text(
-                                    "15 Coins",
-                                    style: TextStyle(
-                                      color: Color(0xffffcd4c),
-                                      fontSize: 16,
-                                      fontFamily: "Avenir",
-                                      fontWeight: FontWeight.w800,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 )
               ],
             ),
             Positioned(
-              bottom: 0,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    PageTransition(
-                      duration: Duration(seconds: 1),
-                      type: PageTransitionType.fade,
-                      child: CheckoutSecurityScreen(),
-                    ),
-                  );
-                },
-                child: Container(
-                  width: 328,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(3),
-                    color: Color(0xfff3af00),
-                  ),
-                  padding: const EdgeInsets.only(
-                    top: 15,
-                    bottom: 14,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Pay 10 Coins",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontFamily: "Avenir",
-                          fontWeight: FontWeight.w900,
-                        ),
+              child: Container(
+                alignment: Alignment.bottomCenter,
+                margin: EdgeInsets.only(bottom: 40),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      PageTransition(
+                        duration: Duration(seconds: 1),
+                        type: PageTransitionType.fade,
+                        child: CheckoutSecurityScreen(),
                       ),
-                    ],
+                    );
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(3),
+                      color: Color(0xfff3af00),
+                    ),
+                    padding: const EdgeInsets.only(
+                      top: 15,
+                      bottom: 15,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Pay 15 Coins",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontFamily: "Avenir",
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

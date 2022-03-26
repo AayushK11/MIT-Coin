@@ -14,53 +14,39 @@ class _EventDetailsState extends State<EventDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(33, 34, 48, 1),
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(33, 34, 48, 1),
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          'Event Details',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 19,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Stack(
           children: [
             Container(
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Container(
-                        width: 20,
-                        height: 20,
-                        padding: const EdgeInsets.only(
-                          left: 1387,
-                          bottom: 5134,
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Transform.rotate(
-                              angle: -1.57,
-                              child: Container(
-                                width: 10.04,
-                                height: double.infinity,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: FlutterLogo(size: 10.04083251953125),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Text(
-                        "Event details",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontFamily: "Avenir",
-                          fontWeight: FontWeight.w800,
-                        ),
-                      )
-                    ],
-                  ),
                   Container(
-                    width: 328,
+                    // width: MediaQuery.of(context).size.width * 0.9,
+                    height: MediaQuery.of(context).size.width * 0.25,
+                    margin: const EdgeInsets.only(
+                        top: 20, bottom: 20, left: 20, right: 20),
+                    alignment: Alignment.topCenter,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(3),
                       gradient: LinearGradient(
@@ -89,17 +75,18 @@ class _EventDetailsState extends State<EventDetails> {
                                   "AI/ML workshop",
                                   style: TextStyle(
                                     color: Colors.white,
-                                    fontSize: 16,
+                                    fontSize: 18,
                                     fontFamily: "Avenir",
                                     fontWeight: FontWeight.w800,
                                   ),
                                 ),
-                                SizedBox(height: 2),
+                                SizedBox(height: 6),
                                 Text(
                                   "by Robotics Club",
                                   style: TextStyle(
                                     color: Color(0xffe5e5e5),
-                                    fontSize: 11,
+                                    fontSize: 15,
+                                    fontFamily: "Avenir",
                                   ),
                                 ),
                               ],
@@ -131,15 +118,18 @@ class _EventDetailsState extends State<EventDetails> {
                                               child: Align(
                                                 alignment: Alignment.center,
                                                 child: Container(
-                                                  width: 11.38,
-                                                  height: 11.67,
+                                                  width: 14,
+                                                  height: 14,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8),
                                                   ),
-                                                  child:
-                                                      FlutterLogo(size: 11.375),
+                                                  child: Container(
+                                                    padding: EdgeInsets.all(2),
+                                                    child: Image.asset(
+                                                        'assets/images/Calender.png'),
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -151,7 +141,7 @@ class _EventDetailsState extends State<EventDetails> {
                                         "12 Match 22’",
                                         style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 12,
+                                          fontSize: 14,
                                           fontFamily: "Avenir",
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -181,15 +171,18 @@ class _EventDetailsState extends State<EventDetails> {
                                               child: Align(
                                                 alignment: Alignment.topLeft,
                                                 child: Container(
-                                                  width: 12.54,
-                                                  height: 12.54,
+                                                  width: 14,
+                                                  height: 14,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8),
                                                   ),
-                                                  child: FlutterLogo(
-                                                      size: 12.541666984558105),
+                                                  child: Container(
+                                                    padding: EdgeInsets.all(2),
+                                                    child: Image.asset(
+                                                        'assets/images/Clock.png'),
+                                                  ),
                                                 ),
                                               ),
                                             ),
@@ -201,7 +194,7 @@ class _EventDetailsState extends State<EventDetails> {
                                         "4:00 PM",
                                         style: TextStyle(
                                           color: Colors.white,
-                                          fontSize: 12,
+                                          fontSize: 14,
                                         ),
                                       ),
                                     ],
@@ -214,13 +207,18 @@ class _EventDetailsState extends State<EventDetails> {
                       ],
                     ),
                   ),
-                  Text(
-                    "What is this workshop?\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum consequat tellus mi adipiscing. Viverra nam quis pellentesque at duis cursus consequat, fringilla. Risus nisl aliquet pulvinar ultrices duis ipsum et. Consequat sit dignissim nisl urna malesuada bibendum. Ornare suscipit volutpat nisl sed et lectus faucibus. Id proin cras nec, ut sed lectus sollicitudin.",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontFamily: "Avenir",
-                      fontWeight: FontWeight.w500,
+                  Container(
+                    margin: const EdgeInsets.only(
+                        top: 20, bottom: 20, left: 20, right: 20),
+                    alignment: Alignment.topCenter,
+                    child: const Text(
+                      "Workshop Description\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum consequat tellus mi adipiscing. Viverra nam quis pellentesque at duis cursus consequat, fringilla. Risus nisl aliquet pulvinar ultrices duis ipsum et. Consequat sit dignissim nisl urna malesuada bibendum. Ornare suscipit volutpat nisl sed et lectus faucibus. Id proin cras nec, ut sed lectus sollicitudin.",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontFamily: "Avenir",
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   )
                 ],
@@ -228,14 +226,10 @@ class _EventDetailsState extends State<EventDetails> {
             ),
             Positioned(
               bottom: 0,
-              height: MediaQuery.of(context).size.height / 100 * 10,
+              height: MediaQuery.of(context).size.height * 0.105,
               child: Container(
-                width: 360,
+                width: MediaQuery.of(context).size.width,
                 color: Color(0xff151321),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 32,
-                  vertical: 24,
-                ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -250,7 +244,7 @@ class _EventDetailsState extends State<EventDetails> {
                           "Join event for",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 14,
+                            fontSize: 16,
                             fontFamily: "Avenir",
                             fontWeight: FontWeight.w500,
                           ),
@@ -262,63 +256,31 @@ class _EventDetailsState extends State<EventDetails> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              width: 16,
-                              height: 16,
-                              padding: const EdgeInsets.only(
-                                bottom: 4,
-                              ),
+                              width: 18,
+                              height: 18,
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Transform.rotate(
-                                    angle: 3.14,
-                                    child: Container(
-                                      width: 12.31,
-                                      height: 12.31,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Color(0xffffcd4c),
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(height: 2219.57),
-                                  Container(
-                                    width: 16,
-                                    height: 16,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      gradient: LinearGradient(
-                                        begin: Alignment.centerRight,
-                                        end: Alignment.centerLeft,
-                                        colors: [
-                                          Color(0xffffcd4c),
-                                          Color(0xfff3af00)
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(height: 2219.57),
-                                  Container(
-                                    width: 7,
-                                    height: 5.65,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: FlutterLogo(size: 5.653844833374023),
+                                  Image.asset(
+                                    'assets/images/LogoFlat.png',
+                                    fit: BoxFit.contain,
                                   ),
                                 ],
                               ),
                             ),
                             SizedBox(width: 5),
-                            Text(
-                              "10 Coins",
-                              style: TextStyle(
-                                color: Color(0xffffcd4c),
-                                fontSize: 14,
-                                fontFamily: "Avenir",
-                                fontWeight: FontWeight.w800,
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                "10 Coins",
+                                style: TextStyle(
+                                  color: Color(0xffffcd4c),
+                                  fontSize: 16,
+                                  fontFamily: "Avenir",
+                                  fontWeight: FontWeight.w800,
+                                ),
                               ),
                             ),
                           ],
@@ -326,7 +288,7 @@ class _EventDetailsState extends State<EventDetails> {
                       ],
                     ),
                     SizedBox(width: 91),
-                    ElevatedButton(
+                    TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -338,18 +300,13 @@ class _EventDetailsState extends State<EventDetails> {
                         );
                       },
                       child: Container(
-                        width: 118,
-                        height: 40,
+                        width: 140,
+                        height: 50,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(3),
                           color: Color(0xff0d6cc4),
                         ),
-                        padding: const EdgeInsets.only(
-                          left: 26,
-                          right: 25,
-                          top: 11,
-                          bottom: 10,
-                        ),
+                        alignment: Alignment.center,
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -360,7 +317,7 @@ class _EventDetailsState extends State<EventDetails> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 14,
+                                fontSize: 16,
                                 fontFamily: "Avenir",
                                 fontWeight: FontWeight.w500,
                               ),

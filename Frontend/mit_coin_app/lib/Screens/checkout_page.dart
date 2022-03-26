@@ -14,42 +14,44 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(33, 34, 48, 1),
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(33, 34, 48, 1),
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          'Join Event',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 19,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Stack(
           children: [
             Column(
               children: [
-                Row(
-                  children: [
-                    Text(
-                      "Join event",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontFamily: "Avenir",
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                  ],
-                ),
                 Container(
-                  width: 328,
-                  height: 205,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        width: 328,
-                        height: 205,
+                        padding: EdgeInsets.all(20),
+                        width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(4),
                           color: Color(0xff151321),
-                        ),
-                        padding: const EdgeInsets.only(
-                          top: 16,
-                          bottom: 24,
                         ),
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
@@ -57,269 +59,139 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
-                              width: 40,
-                              height: 40,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                color: Color(0xff212230),
+                              height: 50,
+                              child: Image.asset('assets/images/ml.png'),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(top: 10),
+                              child: Text(
+                                "AI/ML workshop",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontFamily: "Avenir",
+                                  fontWeight: FontWeight.w800,
+                                ),
                               ),
-                              padding: const EdgeInsets.all(8),
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(vertical: 10),
                               child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Container(
-                                    width: 18,
-                                    height: 18,
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: 2,
-                                      vertical: 3,
+                                  Text(
+                                    "by Robotics Club",
+                                    style: TextStyle(
+                                      color: Color(0xffc0c0c0),
+                                      fontSize: 12,
+                                      fontFamily: "Avenir",
+                                      fontWeight: FontWeight.w500,
                                     ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          width: 16.12,
-                                          height: 13.12,
-                                          child: Stack(
-                                            children: [
-                                              Positioned(
-                                                left: 8.51,
-                                                top: 0.19,
-                                                child: Container(
-                                                  width: 0.75,
-                                                  height: 11.65,
-                                                  decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8),
-                                                  ),
-                                                  child:
-                                                      FlutterLogo(size: 0.75),
-                                                ),
-                                              ),
-                                              Container(
-                                                width: 16.12,
-                                                height: 13.12,
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.circular(8),
-                                                  border: Border.all(
-                                                    color: Color(0xffff7272),
-                                                    width: 1.12,
-                                                  ),
-                                                  color: Color(0x7f7f3a44),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
+                                  ),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        width: 16,
+                                        height: 16,
+                                        child: Image.asset(
+                                            'assets/images/logo.png'),
+                                      ),
+                                      SizedBox(width: 5),
+                                      Text(
+                                        "15 Coins",
+                                        style: TextStyle(
+                                          color: Color(0xffffcd4c),
+                                          fontSize: 14,
+                                          fontFamily: "Avenir",
+                                          fontWeight: FontWeight.w800,
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
                             ),
-                            Text(
-                              "AI/ML workshop",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontFamily: "Avenir",
-                                fontWeight: FontWeight.w800,
+                            Container(
+                              height: 0.50,
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Color(0xffc0c0c0),
+                                  width: 0.75,
+                                ),
                               ),
                             ),
                             Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Container(
-                                  width: 16,
-                                  height: 16,
-                                  padding: const EdgeInsets.only(
-                                    bottom: 4,
+                                  margin: EdgeInsets.only(top: 20),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(3),
+                                    color: Color(0xff212230),
                                   ),
-                                  child: Column(
+                                  padding: const EdgeInsets.all(8),
+                                  child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
-                                      Transform.rotate(
-                                        angle: 3.14,
-                                        child: Container(
-                                          width: 12.31,
-                                          height: 12.31,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            color: Color(0xffffcd4c),
-                                          ),
+                                      Text(
+                                        "12 March 22’",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14,
                                         ),
-                                      ),
-                                      SizedBox(height: 2038.57),
-                                      Container(
-                                        width: 16,
-                                        height: 16,
-                                        decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          gradient: LinearGradient(
-                                            begin: Alignment.centerRight,
-                                            end: Alignment.centerLeft,
-                                            colors: [
-                                              Color(0xffffcd4c),
-                                              Color(0xfff3af00)
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(height: 2038.57),
-                                      Container(
-                                        width: 7,
-                                        height: 5.65,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(8),
-                                        ),
-                                        child: FlutterLogo(
-                                            size: 5.653844833374023),
                                       ),
                                     ],
                                   ),
                                 ),
-                                SizedBox(width: 5),
-                                Text(
-                                  "15 Coins",
-                                  style: TextStyle(
-                                    color: Color(0xffffcd4c),
-                                    fontSize: 14,
-                                    fontFamily: "Avenir",
-                                    fontWeight: FontWeight.w800,
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(top: 20),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(3),
+                                    color: Color(0xff212230),
+                                  ),
+                                  padding: const EdgeInsets.all(8),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        "4:00 PM",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
-                            ),
-                            Text(
-                              "by Robotics Club",
-                              style: TextStyle(
-                                color: Color(0xffc0c0c0),
-                                fontSize: 12,
-                                fontFamily: "Avenir",
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                            Container(
-                              width: 279.50,
-                              height: 0.50,
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: Color(0xffc0c0c0),
-                                  width: 0.50,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(3),
-                                color: Color(0xff212230),
-                              ),
-                              padding: const EdgeInsets.all(8),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    width: 16,
-                                    height: 16,
-                                    child: Stack(
-                                      children: [
-                                        Positioned.fill(
-                                          child: Align(
-                                            alignment: Alignment.center,
-                                            child: Container(
-                                              width: 13,
-                                              height: 13.33,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                              ),
-                                              child: FlutterLogo(
-                                                  size: 12.999999046325684),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(width: 6),
-                                  Text(
-                                    "12 March 22’",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(3),
-                                color: Color(0xff212230),
-                              ),
-                              padding: const EdgeInsets.all(8),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Container(
-                                    width: 14,
-                                    height: 14,
-                                    child: Stack(
-                                      children: [
-                                        Positioned.fill(
-                                          child: Align(
-                                            alignment: Alignment.topLeft,
-                                            child: Container(
-                                              width: 12.54,
-                                              height: 12.54,
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                              ),
-                                              child: FlutterLogo(
-                                                  size: 12.541666984558105),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(width: 6),
-                                  Text(
-                                    "4:00 PM",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
+                            )
                           ],
                         ),
                       ),
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
                 Container(
+                  width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(4),
                     color: Color(0xff151321),
@@ -372,7 +244,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(height: 1959.09),
+                                    SizedBox(height: 1809.09),
                                     Container(
                                       width: 20,
                                       height: 20,
@@ -388,7 +260,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(height: 1959.09),
+                                    SizedBox(height: 1809.09),
                                     Container(
                                       width: 8.75,
                                       height: 7.07,
@@ -464,7 +336,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             ),
                                           ),
                                         ),
-                                        SizedBox(height: 1936.09),
+                                        SizedBox(height: 1786.09),
                                         Container(
                                           width: 20,
                                           height: 20,
@@ -480,7 +352,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                             ),
                                           ),
                                         ),
-                                        SizedBox(height: 1936.09),
+                                        SizedBox(height: 1786.09),
                                         Container(
                                           width: 8.75,
                                           height: 7.07,
@@ -512,7 +384,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       ),
                     ],
                   ),
-                ),
+                )
               ],
             ),
             Positioned(

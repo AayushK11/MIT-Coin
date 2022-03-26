@@ -24,12 +24,12 @@ class _HomeTabState extends State<HomeTab> {
   @override
   void initState() {
     // TODO: implement initState
-    first_name = my_storage.getItem('first_name');
-    last_name = my_storage.getItem('last_name');
-    wallet_balance = my_storage.getItem('wallet_balance');
-    coin_value = my_storage.getItem('coin_value').toString();
-    total_spent = my_storage.getItem('total_spent').toString();
-    total_cashback = my_storage.getItem('total_cashback').toString();
+    // first_name = my_storage.getItem('first_name');
+    // last_name = my_storage.getItem('last_name');
+    // wallet_balance = my_storage.getItem('wallet_balance');
+    // coin_value = my_storage.getItem('coin_value').toString();
+    // total_spent = my_storage.getItem('total_spent').toString();
+    // total_cashback = my_storage.getItem('total_cashback').toString();
   }
 
   @override
@@ -61,7 +61,18 @@ class _HomeTabState extends State<HomeTab> {
                             fontWeight: FontWeight.w800,
                           ),
                         ),
-                        Image.asset('assets/images/scan.png'),
+                        ElevatedButton(onPressed: (){
+
+        Navigator.push(
+          context,
+          PageTransition(
+            duration: Duration(milliseconds: 250),
+            type: PageTransitionType.rightToLeft,
+            child: EventDetails(),
+          ),
+        );
+                        }, child: 
+                        Image.asset('assets/images/scan.png'),),
                       ],
                     ),
                   ),

@@ -152,9 +152,9 @@ class _WalletTabState extends State<WalletTab> {
                                 ),
                                 SizedBox(height: 2),
                                 Text(
-                                  "11.000 INR",
+                                  "9.763 INR",
                                   style: TextStyle(
-                                    color: Color(0xff0abb51),
+                                    color: Color(0xFFBB0A0A),
                                     fontSize: 18,
                                     fontFamily: "Avenir",
                                     fontWeight: FontWeight.w800,
@@ -279,7 +279,6 @@ tuckShop(context) {
                     style: TextStyle(
                       color: Color(0xffc4c4c4),
                       fontSize: 12,
-                      fontFamily: "Avenir",
                     ),
                   ),
                 ],

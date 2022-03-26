@@ -33,42 +33,6 @@ class _ProfileTabState extends State<ProfileTab> {
                   )),
                 ),
               ),
-              // Container(
-              //   margin: EdgeInsets.only(top: 20, left: 20, right: 20),
-              //   width: MediaQuery.of(context).size.width,
-              //   padding:
-              //       EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
-              //   decoration: BoxDecoration(
-              //     borderRadius: BorderRadius.circular(5),
-              //     color: Color(0xff212230),
-              //   ),
-              //   child: Row(
-              //       mainAxisSize: MainAxisSize.min,
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       crossAxisAlignment: CrossAxisAlignment.center,
-              //       children: [
-              //         Column(
-              //             mainAxisSize: MainAxisSize.min,
-              //             mainAxisAlignment: MainAxisAlignment.start,
-              //             crossAxisAlignment: CrossAxisAlignment.start,
-              //             children: [
-              //               Column(
-              //                   mainAxisSize: MainAxisSize.min,
-              //                   mainAxisAlignment: MainAxisAlignment.start,
-              //                   crossAxisAlignment: CrossAxisAlignment.start,
-              //                   children: [
-              //                     Text(
-              //                       "Your Balance",
-              //                       style: TextStyle(
-              //                         color: Color(0xffc0c0c0),
-              //                         fontSize: 14,
-              //                         fontFamily: "Avenir",
-              //                       ),
-              //                     ),
-              //                   ]),
-              //             ]),
-              //       ]),
-              // ),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
@@ -192,64 +156,44 @@ class _ProfileTabState extends State<ProfileTab> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              width: 16,
-                              height: 16,
-                              padding: const EdgeInsets.only(
-                                bottom: 4,
-                              ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                mainAxisAlignment: MainAxisAlignment.center,
+                              child: (Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Transform.rotate(
-                                    angle: 3.14,
-                                    child: Container(
-                                      width: 12.31,
-                                      height: 12.31,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
+                                  Container(
+                                    width: 18,
+                                    height: 18,
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Image.asset(
+                                          'assets/images/LogoFlat.png',
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(width: 5),
+                                  Container(
+                                    alignment: Alignment.centerLeft,
+                                    child: Text(
+                                      "500 Coins",
+                                      style: TextStyle(
                                         color: Color(0xffffcd4c),
+                                        fontSize: 16,
+                                        fontFamily: "Avenir",
+                                        fontWeight: FontWeight.w800,
                                       ),
                                     ),
-                                  ),
-                                  SizedBox(height: 2459.57),
-                                  Container(
-                                    width: 16,
-                                    height: 16,
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      gradient: LinearGradient(
-                                        begin: Alignment.centerRight,
-                                        end: Alignment.centerLeft,
-                                        colors: [
-                                          Color(0xffffcd4c),
-                                          Color(0xfff3af00)
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(height: 2459.57),
-                                  Container(
-                                    width: 7,
-                                    height: 5.65,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    child: FlutterLogo(size: 5.653844833374023),
                                   ),
                                 ],
-                              ),
-                            ),
-                            SizedBox(width: 5),
-                            Text(
-                              "500 Coins",
-                              style: TextStyle(
-                                color: Color(0xffffcd4c),
-                                fontSize: 14,
-                                fontFamily: "Avenir",
-                                fontWeight: FontWeight.w800,
-                              ),
+                              )),
                             ),
                           ],
                         ),
@@ -258,25 +202,59 @@ class _ProfileTabState extends State<ProfileTab> {
                   ],
                 ),
               ),
-              Text(
-                "Upcoming Events",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontFamily: "Avenir",
-                  fontWeight: FontWeight.w800,
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
                 ),
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(top: 10, bottom: 5),
+                padding: EdgeInsets.fromLTRB(25, 15, 10, 10),
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        child: Text(
+                          "Upcoming Events",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontFamily: "Avenir",
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                    ]),
               ),
               upcomingEvent(context),
               upcomingEvent(context),
-              Text(
-                "Your Clubs",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontFamily: "Avenir",
-                  fontWeight: FontWeight.w800,
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
                 ),
+                alignment: Alignment.centerLeft,
+                margin: EdgeInsets.only(top: 10, bottom: 5),
+                padding: EdgeInsets.fromLTRB(25, 0, 10, 10),
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        child: Text(
+                          "Your Events",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontFamily: "Avenir",
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                    ]),
               ),
               upcomingEvent(context),
               upcomingEvent(context),
@@ -292,7 +270,7 @@ upcomingEvent(context) {
   return Container(
     // width: MediaQuery.of(context).size.width * 0.9,
     height: MediaQuery.of(context).size.width * 0.25,
-    margin: const EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
+    margin: const EdgeInsets.only(top: 5, bottom: 15, left: 20, right: 20),
     alignment: Alignment.topCenter,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(3),

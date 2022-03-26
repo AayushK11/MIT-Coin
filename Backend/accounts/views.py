@@ -11,8 +11,9 @@ from django.forms import ValidationError
 from django.db import IntegrityError
 from django.contrib.auth import authenticate
 
-from .models import User
-from .serializers import UserSerializer
+from .models import Ledger, User
+from .serializers import StudentProfileSerializer, UserSerializer
+from django.db.models import Sum
 
 
 class AuthViewSet(ViewSet):
@@ -21,7 +22,7 @@ class AuthViewSet(ViewSet):
         data = request.data
         email = data.get("email", None)
         password = data.get("password", None)
-        name = data.get("name", None)
+        name = data.get("name", None).split(" ")
         message, status_code = None, None
 
         if email and password:
@@ -36,8 +37,9 @@ class AuthViewSet(ViewSet):
 
                     try:
                         user = User.objects.create_user(
-                            email=email, password=password, name=name
+                            email=email, password=password, role="student"
                         )
+                        user.student_profile.create(first_name=name[0], last_name=name[1])
                         message, status_code = (
                             "User registered scuccessfully",
                             status.HTTP_201_CREATED,
@@ -88,7 +90,11 @@ class AuthViewSet(ViewSet):
             if user:
 
                 token = Token.objects.get(user=user)
-                serialized_user = UserSerializer(user)
+                serialized_user = StudentProfileSerializer(user)
+                data = serialized_user.data
+                data["recent_transaction"] = user.my_trans.all().order_by("-pk")[:5]
+                data["total_spent"] = user.my_trans.all().annotate(total_spent=Sum("amount"))
+                data["total_cashback"] = user.rewards.all().annotate(total_spent=Sum("amount"))
                 message, status_code = {
                     "token": token.key,
                     "profile": serialized_user.data,

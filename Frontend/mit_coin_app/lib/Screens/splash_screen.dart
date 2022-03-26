@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> makePostRequest() async {
     final url =
-        Uri.parse('http://df1d-114-143-215-162.ngrok.io/account/login/');
+        Uri.parse('http://df1d-114-143-215-162.ngrok.io/accounts/login/');
     final json = '{"email": "shantanu@mit.com", "password": "password"}';
     final response = await post(url, body: json);
     print('Status code: ${response.statusCode}');

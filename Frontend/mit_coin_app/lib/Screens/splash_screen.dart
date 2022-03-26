@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mit_coin_app/Screens/home.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:http/http.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -15,7 +16,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    startTimer();
+    // startTimer();
+    makePostRequest();
+    // makeGetRequest();
   }
 
   startTimer() async {
@@ -23,6 +26,23 @@ class _SplashScreenState extends State<SplashScreen> {
       Duration(seconds: 3),
       nextScreen,
     );
+  }
+
+  Future<void> makePostRequest() async {
+    final url =
+        Uri.parse('http://df1d-114-143-215-162.ngrok.io/account/login/');
+    final json = '{"email": "shantanu@mit.com", "password": "password"}';
+    final response = await post(url, body: json);
+    print('Status code: ${response.statusCode}');
+    print('Body: ${response.body}');
+  }
+
+  Future<void> makeGetRequest() async {
+    final url = Uri.parse('https://api.publicapis.org/entries');
+    Response response = await get(url);
+    print('Status code: ${response.statusCode}');
+    print('Headers: ${response.headers}');
+    print('Body: ${response.body}');
   }
 
   nextScreen() {

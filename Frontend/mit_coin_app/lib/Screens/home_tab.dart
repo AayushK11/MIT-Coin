@@ -135,7 +135,7 @@ class _HomeTabState extends State<HomeTab> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              "$total_spent coins",
+                              "${total_spent != '[]' ? total_spent : 0} coins",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
@@ -169,7 +169,7 @@ class _HomeTabState extends State<HomeTab> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              "$total_cashback coins",
+                              "${total_cashback != '[]' ? total_cashback : 0} coins",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mit_coin_app/Screens/clubs_tab.dart';
 import 'package:mit_coin_app/Screens/event_details.dart';
 import 'package:mit_coin_app/Screens/home_tab.dart';
+import 'package:mit_coin_app/Screens/profile_tab.dart';
+import 'package:mit_coin_app/Screens/report_tab.dart';
 import 'package:mit_coin_app/Screens/wallet_tab.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,8 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
     HomeTab(),
     ClubsTab(),
     WalletTab(),
-    HomeTab(),
-    HomeTab(),
+    ReportTab(),
+    ProfileTab(),
   ];
 
   void onTabTapped(int index) {

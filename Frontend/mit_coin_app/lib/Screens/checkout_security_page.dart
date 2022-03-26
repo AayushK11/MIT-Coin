@@ -106,10 +106,9 @@ class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
                     Navigator.push(
                       context,
                       PageTransition(
-                        duration: Duration(seconds: 1),
-                        type: PageTransitionType.fade,
-                        child: CheckoutSecurityScreen(),
-                      ),
+                          duration: Duration(seconds: 1),
+                          type: PageTransitionType.fade,
+                          child: SuccessScreen()),
                     );
                   },
                   child: Container(

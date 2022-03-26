@@ -49,52 +49,53 @@ class _RewardsScreenState extends State<RewardsScreen> {
             Positioned(
               bottom: 0,
               child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  alignment: Alignment.bottomCenter,
-                  margin: EdgeInsets.only(bottom: 56),
-                  child: Column(
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            PageTransition(
-                                duration: Duration(seconds: 1),
-                                type: PageTransitionType.fade,
-                                child: HomeScreen()),
-                          );
-                        },
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.9,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(3),
-                            color: Color(0xff0d6dcf),
-                          ),
-                          padding: const EdgeInsets.only(
-                            top: 15,
-                            bottom: 15,
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Back Home",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 15,
-                                  fontFamily: "Avenir",
-                                  fontWeight: FontWeight.w900,
-                                ),
+                width: MediaQuery.of(context).size.width,
+                alignment: Alignment.bottomCenter,
+                margin: EdgeInsets.only(bottom: 56),
+                child: Column(
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          PageTransition(
+                              duration: Duration(seconds: 1),
+                              type: PageTransitionType.fade,
+                              child: HomeScreen()),
+                        );
+                      },
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(3),
+                          color: Color(0xff0d6dcf),
+                        ),
+                        padding: const EdgeInsets.only(
+                          top: 15,
+                          bottom: 15,
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Back Home",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontFamily: "Avenir",
+                                fontWeight: FontWeight.w900,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  )),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),

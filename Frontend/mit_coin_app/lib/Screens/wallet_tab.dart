@@ -15,29 +15,32 @@ class _WalletTabState extends State<WalletTab> {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 30),
+              padding: EdgeInsets.symmetric(vertical: 40),
               width: MediaQuery.of(context).size.width,
               color: Color(0xff151321),
               child: Column(
                 children: [
-                  Text(
-                    "Your Wallet",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontFamily: "Avenir",
-                      fontWeight: FontWeight.w800,
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    padding: EdgeInsets.fromLTRB(25, 0, 10, 0),
+                    child: Text(
+                      "Your Wallet",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontFamily: "Avenir",
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
                   ),
                   Container(
-                    width: 328,
+                    margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+                    width: MediaQuery.of(context).size.width,
+                    padding: EdgeInsets.only(
+                        top: 20, bottom: 20, left: 20, right: 20),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: Color(0xff212230),
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 32,
-                      vertical: 24,
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -59,6 +62,7 @@ class _WalletTabState extends State<WalletTab> {
                                   style: TextStyle(
                                     color: Color(0xffc0c0c0),
                                     fontSize: 14,
+                                    fontFamily: "Avenir",
                                   ),
                                 ),
                                 SizedBox(height: 2),
@@ -84,6 +88,7 @@ class _WalletTabState extends State<WalletTab> {
                                   style: TextStyle(
                                     color: Color(0xffc0c0c0),
                                     fontSize: 14,
+                                    fontFamily: "Avenir",
                                   ),
                                 ),
                                 SizedBox(height: 2),
@@ -116,6 +121,7 @@ class _WalletTabState extends State<WalletTab> {
                                   style: TextStyle(
                                     color: Color(0xffc0c0c0),
                                     fontSize: 14,
+                                    fontFamily: "Avenir",
                                   ),
                                 ),
                                 SizedBox(height: 2),
@@ -137,10 +143,11 @@ class _WalletTabState extends State<WalletTab> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Forecasted",
+                                  "Forecasted Value",
                                   style: TextStyle(
                                     color: Color(0xffc0c0c0),
                                     fontSize: 14,
+                                    fontFamily: "Avenir",
                                   ),
                                 ),
                                 SizedBox(height: 2),
@@ -164,10 +171,12 @@ class _WalletTabState extends State<WalletTab> {
               ),
             ),
             Container(
+              padding: EdgeInsets.only(top: 10),
+              width: MediaQuery.of(context).size.width,
               child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
+                    padding: EdgeInsets.fromLTRB(25, 20, 10, 0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -176,7 +185,7 @@ class _WalletTabState extends State<WalletTab> {
                             "Transaction History",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 18,
+                              fontSize: 20,
                               fontFamily: "Avenir",
                               fontWeight: FontWeight.w800,
                             ),
@@ -185,6 +194,10 @@ class _WalletTabState extends State<WalletTab> {
                       ],
                     ),
                   ),
+                  tuckShop(context),
+                  tuckShop(context),
+                  tuckShop(context),
+                  tuckShop(context),
                   tuckShop(context),
                   tuckShop(context),
                   tuckShop(context),
@@ -265,7 +278,8 @@ tuckShop(context) {
                     "12 Mar 2022",
                     style: TextStyle(
                       color: Color(0xffc4c4c4),
-                      fontSize: 11,
+                      fontSize: 12,
+                      fontFamily: "Avenir",
                     ),
                   ),
                 ],
@@ -278,7 +292,7 @@ tuckShop(context) {
           textAlign: TextAlign.right,
           style: TextStyle(
             color: Color(0xffffcd4c),
-            fontSize: 14,
+            fontSize: 16,
             fontFamily: "Avenir",
             fontWeight: FontWeight.w800,
           ),

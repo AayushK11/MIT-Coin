@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:localstorage/localstorage.dart';
 import 'package:mit_coin_app/Screens/home.dart';
+import 'package:mit_coin_app/Screens/login_page.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:http/http.dart';
 
@@ -13,45 +16,56 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  final LocalStorage my_storage = new LocalStorage('main');
   @override
   void initState() {
     super.initState();
-    startTimer();
-    makePostRequest();
+    loginCheck();
     // makeGetRequest();
   }
 
-  startTimer() async {
-    Timer(
-      Duration(seconds: 3),
-      nextScreen,
-    );
-  }
-
-  Future<void> makePostRequest() async {
+  Future<void> loginCheck() async {
+    final email = 'shantanu@mit.com';
+    final password = 'password';
     final url =
-        Uri.parse('http://df1d-114-143-215-162.ngrok.io/accounts/login/');
-    final json = '{"email": "shantanu@mit.com", "password": "password"}';
-    final response = await post(url, body: json);
+        Uri.parse('http://dcb5-114-143-215-162.ngrok.io/accounts/login/');
+    final json = '{"email": "$email", "password": "$password"}';
+    final headers = {"Content-type": "application/json"};
+    final response = await post(url, headers: headers, body: json);
     print('Status code: ${response.statusCode}');
     print('Body: ${response.body}');
-  }
 
-  Future<void> makeGetRequest() async {
-    final url = Uri.parse('https://api.publicapis.org/entries');
-    Response response = await get(url);
-    print('Status code: ${response.statusCode}');
-    print('Headers: ${response.headers}');
-    print('Body: ${response.body}');
-  }
+    final response_json = jsonDecode(response.body);
+    final response_message = response_json['message'];
 
-  nextScreen() {
+    final isLoggedIn = response_message != "Wrong credentails";
+
+    my_storage.setItem('email', email);
+    my_storage.setItem('password', password);
+    my_storage.setItem('token', response_message['token']);
+    my_storage.setItem(
+        'wallet_link', response_message['profile']['owner']['wallet_link']);
+    my_storage.setItem('wallet_balance',
+        response_message['profile']['owner']['wallet_balance']);
+    my_storage.setItem('pk', response_message['profile']['pk']);
+    my_storage.setItem('first_name', response_message['profile']['first_name']);
+    my_storage.setItem('last_name', response_message['profile']['last_name']);
+    my_storage.setItem('recent_transaction',
+        response_message['profile']['recent_transaction']);
+    my_storage.setItem(
+        'total_spent', response_message['profile']['total_spent']);
+    my_storage.setItem('recent_transaction',
+        response_message['profile']['recent_transaction']);
+    my_storage.setItem(
+        'total_cashback', response_message['profile']['total_cashback']);
+    my_storage.setItem('coin_value', response_message['profile']['coin_value']);
+
     Navigator.pushAndRemoveUntil(
         context,
         PageTransition(
           duration: Duration(seconds: 1),
           type: PageTransitionType.fade,
-          child: HomeScreen(),
+          child: isLoggedIn ? HomeScreen() : LoginScreen(),
         ),
         (route) => false);
   }

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:localstorage/localstorage.dart';
 import 'package:mit_coin_app/Screens/event_details.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -12,6 +13,25 @@ class HomeTab extends StatefulWidget {
 }
 
 class _HomeTabState extends State<HomeTab> {
+  final LocalStorage my_storage = new LocalStorage('main');
+  var first_name = 'Tejas';
+  var last_name = 'Mandre';
+  var wallet_balance = '500';
+  var coin_value = '10';
+  var total_spent = '30';
+  var total_cashback = '10';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    first_name = my_storage.getItem('first_name');
+    last_name = my_storage.getItem('last_name');
+    wallet_balance = my_storage.getItem('wallet_balance');
+    coin_value = my_storage.getItem('coin_value').toString();
+    total_spent = my_storage.getItem('total_spent').toString();
+    total_cashback = my_storage.getItem('total_cashback').toString();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -33,7 +53,7 @@ class _HomeTabState extends State<HomeTab> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Hi, Tejas Mandre!",
+                          "Hi, $first_name $last_name!",
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,
@@ -71,7 +91,7 @@ class _HomeTabState extends State<HomeTab> {
                             ),
                             SizedBox(height: 4),
                             Text(
-                              "500 MIT Coins",
+                              "$wallet_balance MIT Coins",
                               style: TextStyle(
                                 color: Color(0xffffcd4c),
                                 fontSize: 24,
@@ -81,7 +101,7 @@ class _HomeTabState extends State<HomeTab> {
                             ),
                             SizedBox(height: 8),
                             Text(
-                              "~500 INR",
+                              "~${(double.parse(wallet_balance) * double.parse(coin_value)).toStringAsFixed(2)} INR",
                               style: TextStyle(
                                 color: Color(0xffc0c0c0),
                                 fontSize: 13,
@@ -115,7 +135,7 @@ class _HomeTabState extends State<HomeTab> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              "30 coins",
+                              "${total_spent != '[]' ? total_spent : 0} coins",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
@@ -149,7 +169,7 @@ class _HomeTabState extends State<HomeTab> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              "10 coins",
+                              "${total_cashback != '[]' ? total_cashback : 0} coins",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,

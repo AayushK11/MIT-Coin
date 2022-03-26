@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mit_coin_app/Screens/clubs_tab.dart';
 import 'package:mit_coin_app/Screens/event_details.dart';
 import 'package:mit_coin_app/Screens/home_tab.dart';
 
@@ -14,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _children = [
     HomeTab(),
-    HomeTab(),
+    ClubsTab(),
     HomeTab(),
     HomeTab(),
     HomeTab(),

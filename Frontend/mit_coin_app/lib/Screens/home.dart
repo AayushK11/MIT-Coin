@@ -31,31 +31,43 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: Color.fromRGBO(33, 34, 48, 1),
       body: _children[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: onTabTapped,
-        currentIndex: _currentIndex,
-        items: [
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/images/scan.png'),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/images/scan.png'),
-            label: 'Clubs',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/images/scan.png'),
-            label: 'Wallet',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/images/scan.png'),
-            label: 'Report',
-          ),
-          BottomNavigationBarItem(
-            icon: Image.asset('assets/images/scan.png'),
-            label: 'Profile',
-          ),
-        ],
+      bottomNavigationBar: Container(
+        color: Color(0xff151321),
+        padding: EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 10,
+        ),
+        child: BottomNavigationBar(
+          elevation: 0,
+          type: BottomNavigationBarType.fixed,
+          onTap: onTabTapped,
+          backgroundColor: Color(0xff151321),
+          selectedItemColor: Color(0xffF3AF00),
+          unselectedItemColor: Colors.white,
+          currentIndex: _currentIndex,
+          items: [
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/images/scan.png'),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/images/scan.png'),
+              label: 'Clubs',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/images/scan.png'),
+              label: 'Wallet',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/images/scan.png'),
+              label: 'Report',
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/images/scan.png'),
+              label: 'Profile',
+            ),
+          ],
+        ),
       ),
     );
   }

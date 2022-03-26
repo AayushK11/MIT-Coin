@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:mit_coin_app/Screens/event_details.dart';
 import 'package:page_transition/page_transition.dart';
@@ -183,45 +185,82 @@ class _HomeTabState extends State<HomeTab> {
             Container(
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        child: Text(
-                          "Upcoming Events",
+                  Container(
+                    padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: Text(
+                            "Upcoming Events",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontFamily: "Avenir",
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "Explore all >",
                           style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
+                            color: Color(0xff2b99ff),
+                            fontSize: 14,
                             fontFamily: "Avenir",
                             fontWeight: FontWeight.w800,
                           ),
-                        ),
-                      ),
-                      Text('Explore All >'),
-                    ],
-                  ),
-                  SingleChildScrollView(
-                    child: Row(
-                      children: [
-                        upcomingEvent(context),
-                        upcomingEvent(context),
+                        )
                       ],
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('Recent Transaction'),
-                      Text('View All >'),
-                    ],
+                  Container(
+                    margin: EdgeInsets.symmetric(
+                      vertical: 10,
+                    ),
+                    child: SingleChildScrollView(
+                      child: Row(
+                        children: [
+                          upcomingEvent(context),
+                          upcomingEvent(context),
+                          SizedBox(width: 20)
+                        ],
+                      ),
+                      scrollDirection: Axis.horizontal,
+                    ),
                   ),
-                  tuckShop(),
-                  tuckShop(),
-                  tuckShop(),
-                  tuckShop(),
-                  tuckShop(),
-                  tuckShop(),
-                  tuckShop(),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          child: Text(
+                            "Recent Transaction",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontFamily: "Avenir",
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          "View all >",
+                          style: TextStyle(
+                            color: Color(0xff2b99ff),
+                            fontSize: 14,
+                            fontFamily: "Avenir",
+                            fontWeight: FontWeight.w800,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  tuckShop(context),
+                  tuckShop(context),
+                  tuckShop(context),
+                  tuckShop(context),
+                  SizedBox(height: 20),
                 ],
               ),
             ),
@@ -232,17 +271,18 @@ class _HomeTabState extends State<HomeTab> {
   }
 }
 
-tuckShop() {
+tuckShop(context) {
   return Container(
-    width: 328,
+    margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+    width: MediaQuery.of(context).size.width,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(4),
       color: Color(0xff151321),
     ),
     padding: const EdgeInsets.all(16),
     child: Row(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
@@ -271,7 +311,7 @@ tuckShop() {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: FlutterLogo(size: 13.875),
+                      child: Image.asset('assets/images/tuck_shop.png'),
                     ),
                   ],
                 ),
@@ -304,7 +344,6 @@ tuckShop() {
             ],
           ),
         ),
-        SizedBox(width: 114),
         Text(
           "3 Coins",
           textAlign: TextAlign.right,
@@ -321,70 +360,74 @@ tuckShop() {
 }
 
 upcomingEvent(context) {
-  return ElevatedButton(
-    onPressed: () {
-      Navigator.push(
-        context,
-        PageTransition(
-          duration: Duration(seconds: 1),
-          type: PageTransitionType.fade,
-          child: EventDetails(),
-        ),
-      );
-    },
-    child: Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(7),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Color(0xff07335c), Color(0xff194166)],
-        ),
+  return Container(
+    margin: EdgeInsets.only(left: 20),
+    decoration: BoxDecoration(
+      color: Color(0xff07335c),
+      borderRadius: BorderRadius.circular(7),
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [Color(0xff07335c), Color(0xff194166)],
       ),
-      padding: const EdgeInsets.only(
-        left: 12,
-        right: 48,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "AI/ML workshop",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontFamily: "Avenir",
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-              SizedBox(height: 4),
-              Text(
-                "by Robotics club",
-                style: TextStyle(
-                  color: Color(0xffe5e5e5),
-                  fontSize: 14,
-                ),
-              ),
-            ],
+    ),
+    padding: const EdgeInsets.only(
+      left: 12,
+      right: 48,
+    ),
+    child: TextButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          PageTransition(
+            duration: Duration(seconds: 1),
+            type: PageTransitionType.fade,
+            child: EventDetails(),
           ),
-          SizedBox(height: 24),
-          Text(
-            "10 MIT Coins",
-            style: TextStyle(
-              color: Color(0xffffcd4c),
-              fontSize: 12,
-              fontFamily: "Avenir",
-              fontWeight: FontWeight.w800,
+        );
+      },
+      child: Container(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "AI/ML workshop",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontFamily: "Avenir",
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+                SizedBox(height: 4),
+                Text(
+                  "by Robotics club",
+                  style: TextStyle(
+                    color: Color(0xffe5e5e5),
+                    fontSize: 14,
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
+            SizedBox(height: 24),
+            Text(
+              "10 MIT Coins",
+              style: TextStyle(
+                color: Color(0xffffcd4c),
+                fontSize: 12,
+                fontFamily: "Avenir",
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ],
+        ),
       ),
     ),
   );

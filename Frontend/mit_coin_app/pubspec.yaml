@@ -76,6 +76,8 @@ flutter:
     - family: Avenir
       fonts:
         - asset: assets/fonts/Avenir-Medium.ttf
+        - asset: assets/fonts/Avenir-Black.ttf
+        - asset: assets/fonts/Avenir-Heavy.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

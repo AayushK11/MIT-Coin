@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    startTimer();
+    // startTimer();
   }
 
   startTimer() async {
@@ -46,15 +46,29 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/images/logo.png',
+              Container(
+                width: MediaQuery.of(context).size.width * 0.475,
+                child: Image.asset(
+                  'assets/images/logo.png',
+                ),
               ),
-              Text(
-                'MIT Coins',
-                style: TextStyle(color: Color(0xffFFCD4D), fontSize: 40),
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: (Text(
+                  'MIT Coin',
+                  style: TextStyle(
+                      color: Color(0xffFFCD4D),
+                      fontFamily: "Avenir",
+                      fontSize: 37,
+                      fontWeight: FontWeight.w900),
+                )),
               ),
               Text('One Uni - One Coin',
-                  style: TextStyle(color: Colors.white, fontSize: 20))
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      fontFamily: "Avenir")),
             ],
           ),
         ),

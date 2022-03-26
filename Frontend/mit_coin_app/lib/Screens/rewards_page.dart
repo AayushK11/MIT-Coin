@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:mit_coin_app/Screens/rewards_page.dart';
+import 'package:mit_coin_app/Screens/home.dart';
 import 'package:page_transition/page_transition.dart';
 
-class SuccessScreen extends StatefulWidget {
-  const SuccessScreen({Key? key}) : super(key: key);
+class RewardsScreen extends StatefulWidget {
+  const RewardsScreen({Key? key}) : super(key: key);
 
   @override
-  State<SuccessScreen> createState() => _SuccessScreenState();
+  State<RewardsScreen> createState() => _RewardsScreenState();
 }
 
-class _SuccessScreenState extends State<SuccessScreen> {
+class _RewardsScreenState extends State<RewardsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +53,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            "Transaction successfull",
+                            "rewarded",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white,
@@ -74,14 +74,14 @@ class _SuccessScreenState extends State<SuccessScreen> {
               bottom: 0,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    PageTransition(
-                      duration: Duration(seconds: 1),
-                      type: PageTransitionType.fade,
-                      child: RewardsScreen(),
-                    ),
-                  );
+                  Navigator.pushAndRemoveUntil(
+                      context,
+                      PageTransition(
+                        duration: Duration(seconds: 1),
+                        type: PageTransitionType.fade,
+                        child: HomeScreen(),
+                      ),
+                      (route) => false);
                 },
                 child: Container(
                   width: 288,

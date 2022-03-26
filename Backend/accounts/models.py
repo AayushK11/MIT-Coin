@@ -131,4 +131,9 @@ class Rewards(models.Model):
 
     to_user = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="rewards")
     amount = models.FloatField(default=0.0)
-    description = models.TextField(default="")
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        ic = InitialCounters.objects.get()
+        ic.mit_balance -= self.amount
+        ic.save()

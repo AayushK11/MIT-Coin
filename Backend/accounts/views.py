@@ -11,9 +11,26 @@ from django.forms import ValidationError
 from django.db import IntegrityError
 from django.contrib.auth import authenticate
 
-from .models import Ledger, User
+from .models import InitialCounters, Ledger, Rewards, User
 from .serializers import StudentProfileSerializer, UserSerializer
 from django.db.models import Sum
+import random
+
+def price_decrease(Amount, total_student_coins, coin_value):
+
+    percentage_change = (
+        (total_student_coins - Amount) - total_student_coins
+    ) / total_student_coins
+    coin_value = coin_value + (coin_value * percentage_change)
+    return coin_value
+
+def price_increase(Amount, total_student_coins, coin_value):
+
+    percentage_change = (
+        (total_student_coins + Amount) - total_student_coins
+    ) / total_student_coins
+    coin_value = coin_value + (coin_value * percentage_change)
+    return coin_value
 
 
 class AuthViewSet(ViewSet):
@@ -115,6 +132,51 @@ class AuthViewSet(ViewSet):
         if Token.objects.filter(key=token).exists():
             return Response({}, status=status.HTTP_200_OK)
         return Response({}, status=status.HTTP_401_UNAUTHORIZED)
+    
+    def transact(self, request, from_user, to_user, amount, description):
+        
+        from_user = User.objects.get(wallet_link=from_user)
+        to_user = User.objects.get(wallet_link=to_user)
+        if from_user.wallet_balance < amount:
+            raise ValidationError("Insuffiecient balance")
+        from_user.wallet_balance -= amount
+        to_user.wallet_balance += amount
+        Ledger.objects.create(
+            from_user=from_user,
+            to_user=to_user,
+            amount=amount,
+            description=description,
+        )
+        from_user.save()
+        to_user.save()
+        Ledger.objects.create(
+            from_user=from_user,
+            to_user=to_user,
+            amount=amount,
+            description=f"Vendor paid {to_user.name}",
+        )
+        ic = InitialCounters.objects.get()
+        total_student_coins = ic.student_balance
+        current_coin_value = price_decrease(amount, total_student_coins, ic.value_of_coin)
+        ic.value_of_coin = current_coin_value
+        ic.save()
+        cashback = "Better luck next time"
+        if not amount < 5:
+            upper_limit = amount * 0.5
+            lower_limit = amount * 0.1
+            cashback = round(random.uniform(lower_limit, upper_limit), 2)
+            Rewards.objects.create(
+                to_user=from_user,
+                amount=cashback,
+            )
+            from_user.wallet_balance += cashback
+            from_user.save()
+            ic = InitialCounters.objects.get()
+            total_student_coins = ic.student_balance
+            current_coin_value = price_increase(cashback, total_student_coins, ic.value_of_coin)
+            ic.value_of_coin = current_coin_value
+            ic.save()
+        return Response({"cashback": cashback}, status=200)
 
 
 class LoggedInOpsViewSet(ViewSet):

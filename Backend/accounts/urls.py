@@ -13,8 +13,8 @@ transact = AuthViewSet.as_view({
     "get": "transact"
 })
 
-urlaptterns = [
+urlpatterns = [
     path("register/", register, name="register"),
     path("login/", login, name="login"),
-    path("transact/<str:from_user>/<str:to_user>/<float:amount>/<str:description>/", transact, name="transact"),
+    path("transact/<str:from_user>/<str:to_user>/<int:amount>/<str:description>/", transact, name="transact"),
 ]

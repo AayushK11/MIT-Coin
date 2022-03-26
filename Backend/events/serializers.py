@@ -15,7 +15,7 @@ class ClubSerializer(serializers.Serializer):
 class EventSerializer(serializers.Serializer):
 
     name = serializers.CharField(max_length=100)
-    description = serializers.TextField(blank=True)
+    description = serializers.CharField()
     date = serializers.DateTimeField()
     location = serializers.CharField(max_length=100)
     club = ClubSerializer()

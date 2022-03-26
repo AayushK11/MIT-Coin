@@ -26,10 +26,10 @@ join_club = ClubViewSet.as_view({
 })
 
 urlpatterns = [
-    path("list_events/", list_events, namespace="list_events"),
-    path("event_details/", event_details, namespace="event_details"),
-    path("register_for_an_event/<int:event_pk>/<int:student_pk>/", register_for_an_event, namespace="register_for_an_event"),
-    path("join_club/<int:club_pk>/<int:student_pk>/", join_club, namespace="join_club"),
-    path("list_clubs/", list_clubs, namespace="list_clubs"),
-    path("club_details/", club_details, namespace="club_details"),
+    path("list_events/", list_events, name="list_events"),
+    path("event_details/", event_details, name="event_details"),
+    path("register_for_an_event/<int:event_pk>/<int:student_pk>/", register_for_an_event, name="register_for_an_event"),
+    path("join_club/<int:club_pk>/<int:student_pk>/", join_club, name="join_club"),
+    path("list_clubs/", list_clubs, name="list_clubs"),
+    path("club_details/", club_details, name="club_details"),
 ]

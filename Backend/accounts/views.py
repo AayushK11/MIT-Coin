@@ -11,7 +11,7 @@ from django.forms import ValidationError
 from django.db import IntegrityError
 from django.contrib.auth import authenticate
 
-from .models import InitialCounters, Ledger, Rewards, User
+from .models import InitialCounters, Ledger, Rewards, StudentProfile, User
 from .serializers import StudentProfileSerializer, UserSerializer
 from django.db.models import Sum
 import random
@@ -107,14 +107,15 @@ class AuthViewSet(ViewSet):
             if user:
 
                 token = Token.objects.get(user=user)
-                serialized_user = StudentProfileSerializer(user)
+                student_profile = StudentProfile.objects.get(owner=user)
+                serialized_user = StudentProfileSerializer(student_profile)
                 data = serialized_user.data
                 data["recent_transaction"] = user.my_trans.all().order_by("-pk")[:5]
                 data["total_spent"] = user.my_trans.all().annotate(total_spent=Sum("amount"))
                 data["total_cashback"] = user.rewards.all().annotate(total_spent=Sum("amount"))
                 message, status_code = {
                     "token": token.key,
-                    "profile": serialized_user.data,
+                    "profile": data,
                 }, status.HTTP_200_OK
 
             else:

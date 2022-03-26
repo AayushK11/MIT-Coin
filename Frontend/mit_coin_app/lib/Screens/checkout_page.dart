@@ -437,7 +437,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "Pay 15 Coins",
+                          "Proceed to Pay",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.white,

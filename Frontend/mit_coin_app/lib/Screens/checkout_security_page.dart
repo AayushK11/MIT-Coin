@@ -14,116 +14,131 @@ class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromRGBO(33, 34, 48, 1),
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(33, 34, 48, 1),
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text(
+          'Checkout',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 19,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Stack(
           children: [
-            Column(
-              children: [
-                Row(
-                  children: [
-                    Text(
-                      "Checkout",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontFamily: "Avenir",
-                        fontWeight: FontWeight.w800,
-                      ),
+            Container(
+              alignment: Alignment.topCenter,
+              child: Column(
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    margin: EdgeInsets.only(top: 20),
+                    padding: EdgeInsets.symmetric(
+                      vertical: 40,
                     ),
-                  ],
-                ),
-                Container(
-                  width: 328,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(3),
-                    color: Color(0xff151321),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(3),
+                      color: Color(0xff151321),
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Enter Password to complete transaction",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontFamily: "Avenir",
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(height: 20),
+                            Container(
+                              height: 52,
+                              margin: EdgeInsets.symmetric(
+                                horizontal: 30,
+                              ),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8),
+                                  color: Color(0xff696969)),
+                              child: Container(
+                                child: TextFormField(
+                                  decoration: const InputDecoration(
+                                      border: InputBorder.none,
+                                      contentPadding: EdgeInsets.all(10)),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
-                  padding: const EdgeInsets.only(
-                    top: 32,
-                    bottom: 40,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Enter Password to complete transaction",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontFamily: "Avenir",
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                          Container(
-                            margin: EdgeInsets.symmetric(
-                              horizontal: 30,
-                            ),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8),
-                              color: Colors.amber,
-                            ),
-                            child: TextFormField(
-                              decoration: const InputDecoration(
-                                  border: InputBorder.none,
-                                  contentPadding: EdgeInsets.all(10)),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
             Positioned(
-              bottom: 0,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    PageTransition(
-                      duration: Duration(seconds: 1),
-                      type: PageTransitionType.fade,
-                      child: SuccessScreen(),
-                    ),
-                  );
-                },
-                child: Container(
-                  width: 288,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(3),
-                    color: Color(0xfff3af00),
-                  ),
-                  padding: const EdgeInsets.only(
-                    top: 15,
-                    bottom: 14,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Pay 10 Coins",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontFamily: "Avenir",
-                          fontWeight: FontWeight.w900,
-                        ),
+              child: Container(
+                alignment: Alignment.bottomCenter,
+                margin: EdgeInsets.only(bottom: 40),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      PageTransition(
+                        duration: Duration(seconds: 1),
+                        type: PageTransitionType.fade,
+                        child: CheckoutSecurityScreen(),
                       ),
-                    ],
+                    );
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.9,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(3),
+                      color: Color(0xfff3af00),
+                    ),
+                    padding: const EdgeInsets.only(
+                      top: 15,
+                      bottom: 15,
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Pay 15 Coins",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 15,
+                            fontFamily: "Avenir",
+                            fontWeight: FontWeight.w900,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

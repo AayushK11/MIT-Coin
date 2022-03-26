@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localstorage/localstorage.dart';
 
 class WalletTab extends StatefulWidget {
   const WalletTab({Key? key}) : super(key: key);
@@ -8,6 +9,18 @@ class WalletTab extends StatefulWidget {
 }
 
 class _WalletTabState extends State<WalletTab> {
+  final LocalStorage my_storage = new LocalStorage('main');
+
+  var wallet_balance = '500';
+  var coin_value = '10';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    wallet_balance = my_storage.getItem('wallet_balance');
+    coin_value = my_storage.getItem('coin_value').toString();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -67,7 +80,7 @@ class _WalletTabState extends State<WalletTab> {
                                 ),
                                 SizedBox(height: 2),
                                 Text(
-                                  "500 coins",
+                                  "$wallet_balance coins",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
@@ -93,7 +106,7 @@ class _WalletTabState extends State<WalletTab> {
                                 ),
                                 SizedBox(height: 2),
                                 Text(
-                                  "10.000 INR",
+                                  "${double.parse(coin_value).toStringAsFixed(2)} INR",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
@@ -126,7 +139,7 @@ class _WalletTabState extends State<WalletTab> {
                                 ),
                                 SizedBox(height: 2),
                                 Text(
-                                  "INR 5000",
+                                  "INR ${(double.parse(wallet_balance) * double.parse(coin_value)).toStringAsFixed(2)}",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,

@@ -17,102 +17,95 @@ class _SuccessScreenState extends State<SuccessScreen> {
       body: SafeArea(
         child: Stack(
           children: [
-            Column(
-              children: [
-                Row(
+            Center(
+              child: Container(
+                margin: EdgeInsets.only(top: 220),
+                height: MediaQuery.of(context).size.height,
+                child: Column(
                   children: [
-                    Text(
-                      "Checkout",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontFamily: "Avenir",
-                        fontWeight: FontWeight.w800,
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      child: Image.asset(
+                        'assets/images/Success.png',
                       ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 40),
+                      child: (Text(
+                        'Transaction Successful!',
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontFamily: "Avenir",
+                            fontSize: 30,
+                            fontWeight: FontWeight.w900),
+                      )),
                     ),
                   ],
                 ),
-                Container(
-                  width: 328,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(3),
-                    color: Color(0xff151321),
-                  ),
-                  padding: const EdgeInsets.only(
-                    top: 32,
-                    bottom: 40,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Transaction successfull",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontFamily: "Avenir",
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+              ),
             ),
             Positioned(
               bottom: 0,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    PageTransition(
-                      duration: Duration(seconds: 1),
-                      type: PageTransitionType.fade,
-                      child: RewardsScreen(),
-                    ),
-                  );
-                },
-                child: Container(
-                  width: 288,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(3),
-                    color: Color(0xfff3af00),
-                  ),
-                  padding: const EdgeInsets.only(
-                    top: 15,
-                    bottom: 14,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+              child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  alignment: Alignment.bottomCenter,
+                  margin: EdgeInsets.only(bottom: 56),
+                  child: Column(
                     children: [
-                      Text(
-                        "Pay 10 Coins",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontFamily: "Avenir",
-                          fontWeight: FontWeight.w900,
+                      Container(
+                        margin: EdgeInsets.only(bottom: 5),
+                        child: Text(
+                          "You've earned rewards",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                            fontFamily: "Avenir",
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                                duration: Duration(seconds: 1),
+                                type: PageTransitionType.fade,
+                                child: SuccessScreen()),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(3),
+                            color: Color(0xfff3af00),
+                          ),
+                          padding: const EdgeInsets.only(
+                            top: 15,
+                            bottom: 15,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Claim Rewards",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontFamily: "Avenir",
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
-                  ),
-                ),
-              ),
+                  )),
             ),
           ],
         ),

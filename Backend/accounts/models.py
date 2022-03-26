@@ -86,10 +86,6 @@ class ClubProfile(models.Model):
     members = models.ManyToManyField(to=User, related_name='clubs')
     joining_fee = models.FloatField(default=0.0)
 
-    def save(self, *args, **kwargs):
-        if self.owner.role == "college":
-            super().save(*args, **kwargs)
-
 
 class VendorProfile(models.Model):
     owner = models.ForeignKey(to=User, on_delete=models.CASCADE, related_name="vendor_profiles")
@@ -115,7 +111,7 @@ class InitialCounters(models.Model):
     @property
     def student_balance(self):
         total = 0
-        for student in User.objects.filter(role=student):
+        for student in User.objects.filter(role="student"):
             total += student.wallet_balance
         return total
 

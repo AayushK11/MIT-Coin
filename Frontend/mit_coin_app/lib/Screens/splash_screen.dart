@@ -28,10 +28,9 @@ class _SplashScreenState extends State<SplashScreen> {
     final email = 'shantanu@mit.com';
     final password = 'password';
     final url =
-        Uri.parse('http://dcb5-114-143-215-162.ngrok.io/accounts/login/');
-    final json = '{"email": "$email", "password": "$password"}';
-    final headers = {"Content-type": "application/json"};
-    final response = await post(url, headers: headers, body: json);
+        Uri.parse('http://localhost:8000/accounts/login/');
+    final json = '{"email": "shantanu@mit.com", "password": "password"}';
+    final response = await post(url, body: json);
     print('Status code: ${response.statusCode}');
     print('Body: ${response.body}');
 
@@ -66,6 +65,7 @@ class _SplashScreenState extends State<SplashScreen> {
           duration: Duration(seconds: 1),
           type: PageTransitionType.fade,
           child: isLoggedIn ? HomeScreen() : LoginScreen(),
+
         ),
         (route) => false);
   }

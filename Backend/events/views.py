@@ -86,7 +86,7 @@ class EventViewSet(ViewSet):
 
     def event_details(self, request, pk):
         event = Event.objects.get(pk=pk)
-        serilaized_event = ClubSerializer(event)
+        serilaized_event = EventSerializer(event)
         return Response(serilaized_event.data, status=200)
 
     def register_for_an_event(self, request, event_pk, student_pk):
@@ -97,7 +97,7 @@ class EventViewSet(ViewSet):
         else:
             student.owner.wallet_balance -= event.joining_fee
             event.club.owner.wallet_balance += event.joining_fee
-            event.members.add(student)
+            event.members.add(student.owner)
             event.club.owner.save()
             student.owner.save()
             Ledger.objects.create(

@@ -113,6 +113,7 @@ class AuthViewSet(ViewSet):
                 data["recent_transaction"] = user.my_trans.all().order_by("-pk")[:5]
                 data["total_spent"] = user.my_trans.all().annotate(total_spent=Sum("amount"))
                 data["total_cashback"] = user.rewards.all().annotate(total_spent=Sum("amount"))
+                data["coin_value"] = InitialCounters.objects.get().value_of_coin
                 message, status_code = {
                     "token": token.key,
                     "profile": data,

@@ -63,10 +63,18 @@ class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
                             ),
                           ),
                           SizedBox(height: 20),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              border: UnderlineInputBorder(),
-                              labelText: 'Enter your username',
+                          Container(
+                            margin: EdgeInsets.symmetric(
+                              horizontal: 30,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              color: Colors.amber,
+                            ),
+                            child: TextFormField(
+                              decoration: const InputDecoration(
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.all(10)),
                             ),
                           ),
                         ],

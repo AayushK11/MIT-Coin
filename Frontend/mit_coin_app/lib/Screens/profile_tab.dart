@@ -17,28 +17,74 @@ class _ProfileTabState extends State<ProfileTab> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Text(
-                "Your profile",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontFamily: "Avenir",
-                  fontWeight: FontWeight.w800,
+              Container(
+                padding: EdgeInsets.only(top: 10, bottom: 5),
+                width: MediaQuery.of(context).size.width,
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(25, 20, 10, 0),
+                  child: (Text(
+                    "Your profile",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontFamily: "Avenir",
+                      fontWeight: FontWeight.w800,
+                    ),
+                  )),
                 ),
               ),
+              // Container(
+              //   margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+              //   width: MediaQuery.of(context).size.width,
+              //   padding:
+              //       EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
+              //   decoration: BoxDecoration(
+              //     borderRadius: BorderRadius.circular(5),
+              //     color: Color(0xff212230),
+              //   ),
+              //   child: Row(
+              //       mainAxisSize: MainAxisSize.min,
+              //       mainAxisAlignment: MainAxisAlignment.center,
+              //       crossAxisAlignment: CrossAxisAlignment.center,
+              //       children: [
+              //         Column(
+              //             mainAxisSize: MainAxisSize.min,
+              //             mainAxisAlignment: MainAxisAlignment.start,
+              //             crossAxisAlignment: CrossAxisAlignment.start,
+              //             children: [
+              //               Column(
+              //                   mainAxisSize: MainAxisSize.min,
+              //                   mainAxisAlignment: MainAxisAlignment.start,
+              //                   crossAxisAlignment: CrossAxisAlignment.start,
+              //                   children: [
+              //                     Text(
+              //                       "Your Balance",
+              //                       style: TextStyle(
+              //                         color: Color(0xffc0c0c0),
+              //                         fontSize: 14,
+              //                         fontFamily: "Avenir",
+              //                       ),
+              //                     ),
+              //                   ]),
+              //             ]),
+              //       ]),
+              // ),
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   color: Color(0xff151321),
                 ),
-                padding: const EdgeInsets.all(16),
+                margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+                padding:
+                    EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
+                width: MediaQuery.of(context).size.width,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      width: 296,
+                      width: 350,
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -53,7 +99,7 @@ class _ProfileTabState extends State<ProfileTab> {
                                 "Name",
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 12,
+                                  fontSize: 14,
                                   fontFamily: "Avenir",
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -62,7 +108,7 @@ class _ProfileTabState extends State<ProfileTab> {
                                 "Tejas Mandre",
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 16,
+                                  fontSize: 18,
                                   fontFamily: "Avenir",
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -79,7 +125,7 @@ class _ProfileTabState extends State<ProfileTab> {
                                 "Department",
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 12,
+                                  fontSize: 14,
                                   fontFamily: "Avenir",
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -88,7 +134,7 @@ class _ProfileTabState extends State<ProfileTab> {
                                 "Computer Science",
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 16,
+                                  fontSize: 18,
                                   fontFamily: "Avenir",
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -108,7 +154,7 @@ class _ProfileTabState extends State<ProfileTab> {
                           "Email",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 12,
+                            fontSize: 14,
                             fontFamily: "Avenir",
                             fontWeight: FontWeight.w500,
                           ),
@@ -117,7 +163,7 @@ class _ProfileTabState extends State<ProfileTab> {
                           "putinismydaddy@gmail.com",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 16,
+                            fontSize: 18,
                             fontFamily: "Avenir",
                             fontWeight: FontWeight.w500,
                           ),
@@ -134,7 +180,7 @@ class _ProfileTabState extends State<ProfileTab> {
                           "Your balance",
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 12,
+                            fontSize: 14,
                             fontFamily: "Avenir",
                             fontWeight: FontWeight.w500,
                           ),

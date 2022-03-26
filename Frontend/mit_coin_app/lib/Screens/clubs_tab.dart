@@ -243,8 +243,8 @@ upcomingEvent(context) {
         Navigator.push(
           context,
           PageTransition(
-            duration: Duration(seconds: 1),
-            type: PageTransitionType.fade,
+            duration: Duration(milliseconds: 250),
+            type: PageTransitionType.rightToLeft,
             child: EventDetails(),
           ),
         );

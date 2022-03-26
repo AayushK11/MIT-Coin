@@ -59,8 +59,8 @@ class _RewardsScreenState extends State<RewardsScreen> {
                         Navigator.push(
                           context,
                           PageTransition(
-                              duration: Duration(seconds: 1),
-                              type: PageTransitionType.fade,
+                              duration: Duration(milliseconds: 250),
+                              type: PageTransitionType.topToBottom,
                               child: HomeScreen()),
                         );
                       },

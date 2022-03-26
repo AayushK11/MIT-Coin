@@ -63,47 +63,11 @@ class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
                             ),
                           ),
                           SizedBox(height: 20),
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                width: 48,
-                                height: 48,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: FlutterLogo(size: 48),
-                              ),
-                              SizedBox(width: 32),
-                              Container(
-                                width: 48,
-                                height: 48,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: FlutterLogo(size: 48),
-                              ),
-                              SizedBox(width: 32),
-                              Container(
-                                width: 48,
-                                height: 48,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: FlutterLogo(size: 48),
-                              ),
-                              SizedBox(width: 32),
-                              Container(
-                                width: 48,
-                                height: 48,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: FlutterLogo(size: 48),
-                              ),
-                            ],
+                          TextFormField(
+                            decoration: const InputDecoration(
+                              border: UnderlineInputBorder(),
+                              labelText: 'Enter your username',
+                            ),
                           ),
                         ],
                       ),

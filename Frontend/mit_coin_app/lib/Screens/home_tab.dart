@@ -23,7 +23,12 @@ class _HomeTabState extends State<HomeTab> {
               child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(15),
+                    padding: EdgeInsets.only(
+                      top: 15,
+                      left: 25,
+                      right: 15,
+                      bottom: 15,
+                    ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -186,7 +191,7 @@ class _HomeTabState extends State<HomeTab> {
               child: Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
+                    padding: EdgeInsets.fromLTRB(25, 20, 0, 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -201,13 +206,16 @@ class _HomeTabState extends State<HomeTab> {
                             ),
                           ),
                         ),
-                        Text(
-                          "Explore all >",
-                          style: TextStyle(
-                            color: Color(0xff2b99ff),
-                            fontSize: 14,
-                            fontFamily: "Avenir",
-                            fontWeight: FontWeight.w800,
+                        Container(
+                          padding: EdgeInsets.fromLTRB(0, 10, 25, 5),
+                          child: Text(
+                            "Explore all ➜",
+                            style: TextStyle(
+                              color: Color(0xff2b99ff),
+                              fontSize: 14,
+                              fontFamily: "Avenir",
+                              fontWeight: FontWeight.w800,
+                            ),
                           ),
                         )
                       ],
@@ -229,7 +237,7 @@ class _HomeTabState extends State<HomeTab> {
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
+                    padding: EdgeInsets.fromLTRB(25, 20, 0, 5),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -244,15 +252,17 @@ class _HomeTabState extends State<HomeTab> {
                             ),
                           ),
                         ),
-                        Text(
-                          "View all >",
-                          style: TextStyle(
-                            color: Color(0xff2b99ff),
-                            fontSize: 14,
-                            fontFamily: "Avenir",
-                            fontWeight: FontWeight.w800,
-                          ),
-                        )
+                        Container(
+                            padding: EdgeInsets.fromLTRB(0, 10, 25, 5),
+                            child: (Text(
+                              "View all ➜",
+                              style: TextStyle(
+                                color: Color(0xff2b99ff),
+                                fontSize: 14,
+                                fontFamily: "Avenir",
+                                fontWeight: FontWeight.w800,
+                              ),
+                            )))
                       ],
                     ),
                   ),

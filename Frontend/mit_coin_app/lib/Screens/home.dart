@@ -45,29 +45,46 @@ class _HomeScreenState extends State<HomeScreen> {
           elevation: 0,
           type: BottomNavigationBarType.fixed,
           onTap: onTabTapped,
+          selectedLabelStyle: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: Color(0xffFFCF00),
+            fontFamily: "Avenir",
+          ),
+          unselectedLabelStyle: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w600,
+            color: Color(0xffFFCF00).withOpacity(0.5),
+            fontFamily: "Avenir",
+          ),
           backgroundColor: Color(0xff151321),
           selectedItemColor: Color(0xffF3AF00),
           unselectedItemColor: Colors.white,
           currentIndex: _currentIndex,
           items: [
             BottomNavigationBarItem(
-              icon: Image.asset('assets/images/scan.png'),
+              icon: Container(
+                  width: 27, child: Image.asset('assets/images/Home.png')),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('assets/images/scan.png'),
+              icon: Container(
+                  width: 27, child: Image.asset('assets/images/Clubs.png')),
               label: 'Clubs',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('assets/images/scan.png'),
+              icon: Container(
+                  width: 27, child: Image.asset('assets/images/Wallet.png')),
               label: 'Wallet',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('assets/images/scan.png'),
+              icon: Container(
+                  width: 27, child: Image.asset('assets/images/Report.png')),
               label: 'Report',
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('assets/images/scan.png'),
+              icon: Container(
+                  width: 27, child: Image.asset('assets/images/Profile.png')),
               label: 'Profile',
             ),
           ],

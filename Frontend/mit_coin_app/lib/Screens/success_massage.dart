@@ -72,7 +72,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
                             PageTransition(
                                 duration: Duration(seconds: 1),
                                 type: PageTransitionType.fade,
-                                child: SuccessScreen()),
+                                child: RewardsScreen()),
                           );
                         },
                         child: Container(

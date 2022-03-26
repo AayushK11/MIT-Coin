@@ -17,102 +17,84 @@ class _RewardsScreenState extends State<RewardsScreen> {
       body: SafeArea(
         child: Stack(
           children: [
-            Column(
-              children: [
-                Row(
+            Center(
+              child: Container(
+                margin: EdgeInsets.only(top: 220),
+                height: MediaQuery.of(context).size.height,
+                child: Column(
                   children: [
-                    Text(
-                      "Checkout",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontFamily: "Avenir",
-                        fontWeight: FontWeight.w800,
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      child: Image.asset(
+                        'assets/images/Rewards.png',
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 40),
+                      child: Text(
+                        'You\'ve earned \n5 coins as a reward',
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontFamily: "Avenir",
+                            fontSize: 25,
+                            height: 1.2,
+                            fontWeight: FontWeight.w600),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ],
                 ),
-                Container(
-                  width: 328,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(3),
-                    color: Color(0xff151321),
-                  ),
-                  padding: const EdgeInsets.only(
-                    top: 32,
-                    bottom: 40,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "rewarded",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 14,
-                              fontFamily: "Avenir",
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          SizedBox(height: 20),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+              ),
             ),
             Positioned(
               bottom: 0,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      PageTransition(
-                        duration: Duration(seconds: 1),
-                        type: PageTransitionType.fade,
-                        child: HomeScreen(),
-                      ),
-                      (route) => false);
-                },
-                child: Container(
-                  width: 288,
-                  height: 48,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(3),
-                    color: Color(0xfff3af00),
-                  ),
-                  padding: const EdgeInsets.only(
-                    top: 15,
-                    bottom: 14,
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+              child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  alignment: Alignment.bottomCenter,
+                  margin: EdgeInsets.only(bottom: 56),
+                  child: Column(
                     children: [
-                      Text(
-                        "Pay 10 Coins",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 14,
-                          fontFamily: "Avenir",
-                          fontWeight: FontWeight.w900,
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            PageTransition(
+                                duration: Duration(seconds: 1),
+                                type: PageTransitionType.fade,
+                                child: HomeScreen()),
+                          );
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(3),
+                            color: Color(0xff0d6dcf),
+                          ),
+                          padding: const EdgeInsets.only(
+                            top: 15,
+                            bottom: 15,
+                          ),
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Back Home",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontFamily: "Avenir",
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
-                  ),
-                ),
-              ),
+                  )),
             ),
           ],
         ),

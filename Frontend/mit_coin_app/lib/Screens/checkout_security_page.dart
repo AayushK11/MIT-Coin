@@ -16,15 +16,14 @@ class CheckoutSecurityScreen extends StatefulWidget {
 class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
   final LocalStorage my_storage = new LocalStorage('main');
 
-
   Future<void> loginCheck() async {
     final baseURL = 'http://dcb5-114-143-215-162.ngrok.io';
-    final url =
-        Uri.parse('$baseURL/accounts/login/');
+    final url = Uri.parse('$baseURL/accounts/login/');
     Response response = await get(url);
     print('Status code: ${response.statusCode}');
     print('Headers: ${response.headers}');
     print('Body: ${response.body}');
+    my_storage.setItem('cashback_recent', jsonDecode(response.body));
 
     final response_json = jsonDecode(response.body);
     final response_message = response_json['message'];
@@ -50,12 +49,12 @@ class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
     my_storage.setItem(
         'total_cashback', response_message['profile']['total_cashback']);
     my_storage.setItem('coin_value', response_message['profile']['coin_value']);
-
   }
 
   Future<void> makeGetRequest() async {
     final baseURL = 'http://dcb5-114-143-215-162.ngrok.io';
-    final sender = 'b3dac62e85abc71e3092e8431c0f46e8b53a9620ce26ac5d8226a57cf5b3d1ca';
+    final sender =
+        'b3dac62e85abc71e3092e8431c0f46e8b53a9620ce26ac5d8226a57cf5b3d1ca';
     final receiver = my_storage.getItem('receiver').substring(7);
     final amount = my_storage.getItem('amount');
     final url =

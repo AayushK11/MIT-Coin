@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mit_coin_app/Screens/home.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:localstorage/localstorage.dart';
 
 class RewardsScreen extends StatefulWidget {
   const RewardsScreen({Key? key}) : super(key: key);
@@ -10,6 +11,7 @@ class RewardsScreen extends StatefulWidget {
 }
 
 class _RewardsScreenState extends State<RewardsScreen> {
+  final LocalStorage my_storage = new LocalStorage('main');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +34,7 @@ class _RewardsScreenState extends State<RewardsScreen> {
                     Container(
                       margin: EdgeInsets.only(top: 40),
                       child: Text(
-                        'You\'ve earned \n5 coins as a reward',
+                        my_storage.getItem('cashback_recent'),
                         style: TextStyle(
                             color: Color.fromARGB(255, 255, 255, 255),
                             fontFamily: "Avenir",

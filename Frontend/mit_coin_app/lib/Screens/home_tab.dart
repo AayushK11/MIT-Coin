@@ -104,7 +104,7 @@ class _HomeTabState extends State<HomeTab> {
                             ),
                             SizedBox(height: 4),
                             Text(
-                              "$wallet_balance MIT Coins",
+                              "${double.parse(wallet_balance).toStringAsFixed(2)} MIT Coins",
                               style: TextStyle(
                                 color: Color(0xffffcd4c),
                                 fontSize: 24,

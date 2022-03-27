@@ -16,5 +16,5 @@ transact = AuthViewSet.as_view({
 urlpatterns = [
     path("register/", register, name="register"),
     path("login/", login, name="login"),
-    path("transact/<str:from_user>/<str:to_user>/<int:amount>/<str:description>/", transact, name="transact"),
+    path("transact/<str:from_user>/<str:to_user>/<int:amount>/", transact, name="transact"),
 ]

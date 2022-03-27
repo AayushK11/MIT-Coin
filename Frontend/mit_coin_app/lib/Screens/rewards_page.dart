@@ -34,7 +34,7 @@ class _RewardsScreenState extends State<RewardsScreen> {
                     Container(
                       margin: EdgeInsets.only(top: 40),
                       child: Text(
-                        my_storage.getItem('cashback_recent'),
+                        'You\'ve earned \n coins as a reward',
                         style: TextStyle(
                             color: Color.fromARGB(255, 255, 255, 255),
                             fontFamily: "Avenir",

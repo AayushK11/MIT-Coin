@@ -344,7 +344,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                         Container(
                           alignment: Alignment.centerLeft,
                           child: Row(
-                            mainAxisSize: MainAxisSize.min,
+                            mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -360,7 +360,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               SizedBox(width: 100),
                               Container(
                                 child: Row(
-                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
@@ -394,6 +394,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                         ),
                                       ),
                                     ),
+                                    SizedBox(width: 5),
                                   ],
                                 ),
                               ),

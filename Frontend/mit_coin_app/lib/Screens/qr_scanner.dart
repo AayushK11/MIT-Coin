@@ -37,6 +37,7 @@ class QRViewExample extends StatefulWidget {
 
 class _QRViewExampleState extends State<QRViewExample> {
   final LocalStorage my_storage = new LocalStorage('main');
+  var opened = false;
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -93,6 +94,8 @@ class _QRViewExampleState extends State<QRViewExample> {
         result = scanData;
       });
       my_storage.setItem('receiver', scanData!.code);
+      if (!opened){
+opened = true;
       Navigator.push(
         context,
         PageTransition(
@@ -100,6 +103,7 @@ class _QRViewExampleState extends State<QRViewExample> {
             type: PageTransitionType.rightToLeft,
             child: CheckoutAmountScreen()),
       );
+      }
     });
   }
 

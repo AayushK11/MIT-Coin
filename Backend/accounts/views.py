@@ -86,11 +86,11 @@ class AuthViewSet(ViewSet):
 
         return Response(data={"message": message}, status=status_code)
 
-    def login(self, request: Request) -> Response:
+    def login(self, request) -> Response:
 
         data = request.data
-        email = data.get("email", None)
-        password = data.get("password", None)
+        email = data.get("email", "shantanu@mit.com")
+        password = data.get("password", "password")
         message, status_code = None, None
 
         if not any((email, password)):
@@ -110,9 +110,17 @@ class AuthViewSet(ViewSet):
                 student_profile = StudentProfile.objects.get(owner=user)
                 serialized_user = StudentProfileSerializer(student_profile)
                 data = serialized_user.data
-                data["recent_transaction"] = user.my_trans.all().order_by("-pk")[:5]
-                data["total_spent"] = user.my_trans.all().annotate(total_spent=Sum("amount"))
-                data["total_cashback"] = user.rewards.all().annotate(total_spent=Sum("amount"))
+
+                ledgers = Ledger.objects.filter(from_user=user)
+
+                s = 0
+                for i in ledgers:
+                    s += i.amount
+
+                data["total_spent"] = s
+                data["total_cashback"] = user.rewards.all().annotate(total_cashback=Sum("amount"))
+                if(len(data["total_cashback"]) != 0):
+                    data["total_cashback"] = data["total_cashback"].last().total_cashback
                 data["coin_value"] = InitialCounters.objects.get().value_of_coin
                 message, status_code = {
                     "token": token.key,
@@ -135,7 +143,7 @@ class AuthViewSet(ViewSet):
             return Response({}, status=status.HTTP_200_OK)
         return Response({}, status=status.HTTP_401_UNAUTHORIZED)
     
-    def transact(self, request, from_user, to_user, amount, description):
+    def transact(self, request, from_user, to_user, amount):
         
         from_user = User.objects.get(wallet_link=from_user)
         to_user = User.objects.get(wallet_link=to_user)
@@ -155,7 +163,7 @@ class AuthViewSet(ViewSet):
             from_user=from_user,
             to_user=to_user,
             amount=amount,
-            description=f"Vendor paid {to_user.name}",
+            description=f"Vendor paid {to_user.email}",
         )
         ic = InitialCounters.objects.get()
         total_student_coins = ic.student_balance
@@ -178,7 +186,7 @@ class AuthViewSet(ViewSet):
             current_coin_value = price_increase(cashback, total_student_coins, ic.value_of_coin)
             ic.value_of_coin = current_coin_value
             ic.save()
-        return Response({"cashback": cashback}, status=200)
+        return Response(str(cashback), status=200)
 
 
 class LoggedInOpsViewSet(ViewSet):

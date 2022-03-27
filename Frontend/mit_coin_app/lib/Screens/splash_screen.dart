@@ -25,13 +25,12 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> loginCheck() async {
-    final email = 'shantanu@mit.com';
-    final password = 'password';
+    final baseURL = 'http://dcb5-114-143-215-162.ngrok.io';
     final url =
-        Uri.parse('http://dcb5-114-143-215-162.ngrok.io/accounts/login/');
-    final json = '{"email": "shantanu@mit.com", "password": "password"}';
-    final response = await post(url, body: json);
+        Uri.parse('$baseURL/accounts/login/');
+    Response response = await get(url);
     print('Status code: ${response.statusCode}');
+    print('Headers: ${response.headers}');
     print('Body: ${response.body}');
 
     final response_json = jsonDecode(response.body);
@@ -39,8 +38,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
     final isLoggedIn = response_message != "Wrong credentails";
 
-    my_storage.setItem('email', email);
-    my_storage.setItem('password', password);
+    my_storage.setItem('email', 'shantanu@mit.com');
+    my_storage.setItem('password', 'password');
     my_storage.setItem('token', response_message['token']);
     my_storage.setItem(
         'wallet_link', response_message['profile']['owner']['wallet_link']);
@@ -64,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
         PageTransition(
           duration: Duration(seconds: 1),
           type: PageTransitionType.fade,
-          child: isLoggedIn ? HomeScreen() : LoginScreen(),
+          child: HomeScreen(),
         ),
         (route) => false);
   }

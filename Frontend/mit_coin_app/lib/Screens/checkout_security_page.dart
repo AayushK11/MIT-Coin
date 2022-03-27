@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:localstorage/localstorage.dart';
@@ -14,9 +16,46 @@ class CheckoutSecurityScreen extends StatefulWidget {
 class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
   final LocalStorage my_storage = new LocalStorage('main');
 
+
+  Future<void> loginCheck() async {
+    final baseURL = 'http://dcb5-114-143-215-162.ngrok.io';
+    final url =
+        Uri.parse('$baseURL/accounts/login/');
+    Response response = await get(url);
+    print('Status code: ${response.statusCode}');
+    print('Headers: ${response.headers}');
+    print('Body: ${response.body}');
+
+    final response_json = jsonDecode(response.body);
+    final response_message = response_json['message'];
+
+    final isLoggedIn = response_message != "Wrong credentails";
+
+    my_storage.setItem('email', 'shantanu@mit.com');
+    my_storage.setItem('password', 'password');
+    my_storage.setItem('token', response_message['token']);
+    my_storage.setItem(
+        'wallet_link', response_message['profile']['owner']['wallet_link']);
+    my_storage.setItem('wallet_balance',
+        response_message['profile']['owner']['wallet_balance']);
+    my_storage.setItem('pk', response_message['profile']['pk']);
+    my_storage.setItem('first_name', response_message['profile']['first_name']);
+    my_storage.setItem('last_name', response_message['profile']['last_name']);
+    my_storage.setItem('recent_transaction',
+        response_message['profile']['recent_transaction']);
+    my_storage.setItem(
+        'total_spent', response_message['profile']['total_spent']);
+    my_storage.setItem('recent_transaction',
+        response_message['profile']['recent_transaction']);
+    my_storage.setItem(
+        'total_cashback', response_message['profile']['total_cashback']);
+    my_storage.setItem('coin_value', response_message['profile']['coin_value']);
+
+  }
+
   Future<void> makeGetRequest() async {
-    final baseURL = 'http://dcb5-114-143-215-162.ngrok.io/';
-    final sender = my_storage.getItem('wallet_link');
+    final baseURL = 'http://dcb5-114-143-215-162.ngrok.io';
+    final sender = 'b3dac62e85abc71e3092e8431c0f46e8b53a9620ce26ac5d8226a57cf5b3d1ca';
     final receiver = my_storage.getItem('receiver').substring(7);
     final amount = my_storage.getItem('amount');
     final url =
@@ -25,6 +64,8 @@ class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
     print('Status code: ${response.statusCode}');
     print('Headers: ${response.headers}');
     print('Body: ${response.body}');
+
+    loginCheck();
   }
 
   @override

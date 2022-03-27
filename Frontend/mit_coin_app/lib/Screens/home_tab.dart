@@ -25,12 +25,12 @@ class _HomeTabState extends State<HomeTab> {
   @override
   void initState() {
     // TODO: implement initState
-    // first_name = my_storage.getItem('first_name');
-    // last_name = my_storage.getItem('last_name');
-    // wallet_balance = my_storage.getItem('wallet_balance');
-    // coin_value = my_storage.getItem('coin_value').toString();
-    // total_spent = my_storage.getItem('total_spent').toString();
-    // total_cashback = my_storage.getItem('total_cashback').toString();
+    first_name = my_storage.getItem('first_name');
+    last_name = my_storage.getItem('last_name');
+    wallet_balance = my_storage.getItem('wallet_balance');
+    coin_value = my_storage.getItem('coin_value').toString();
+    total_spent = my_storage.getItem('total_spent').toString();
+    total_cashback = my_storage.getItem('total_cashback').toString();
   }
 
   @override

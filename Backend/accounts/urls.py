@@ -2,7 +2,7 @@ from django.urls import path
 from .views import AuthViewSet
 
 login = AuthViewSet.as_view({
-    "post": "login"
+    "get": "login"
 })
 
 register = AuthViewSet.as_view({

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:localstorage/localstorage.dart';
 import 'package:mit_coin_app/Screens/success_massage.dart';
 import 'package:page_transition/page_transition.dart';
@@ -13,12 +14,16 @@ class CheckoutSecurityScreen extends StatefulWidget {
 class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
   final LocalStorage my_storage = new LocalStorage('main');
 
-  @override
-  void initState() {
-    // TODO: implement initState
+  Future<void> makeGetRequest() async {
+    final url = Uri.parse('https://api.publicapis.org/entries');
+    Response response = await get(url);
+    print('Status code: ${response.statusCode}');
+    print('Headers: ${response.headers}');
+    print('Body: ${response.body}');
     print(my_storage.getItem('receiver'));
     print(my_storage.getItem('amount'));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,6 +117,7 @@ class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
                 margin: EdgeInsets.only(bottom: 40),
                 child: TextButton(
                   onPressed: () {
+                    makeGetRequest();
                     Navigator.push(
                       context,
                       PageTransition(

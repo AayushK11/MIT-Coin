@@ -242,6 +242,7 @@ upcomingEvent(context, name, by) {
   return Container(
     // width: MediaQuery.of(context).size.width * 0.9,
     height: MediaQuery.of(context).size.width * 0.25,
+    width: MediaQuery.of(context).size.width,
     margin: const EdgeInsets.only(top: 5, bottom: 15, left: 20, right: 20),
     alignment: Alignment.topCenter,
     decoration: BoxDecoration(
@@ -254,13 +255,13 @@ upcomingEvent(context, name, by) {
     ),
     padding: const EdgeInsets.all(16),
     child: Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Column(

@@ -200,7 +200,7 @@ class _ProfileTabState extends State<ProfileTab> {
                                   Container(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      "$wallet_balance Coins",
+                                      "${double.parse(wallet_balance).toStringAsFixed(2)} Coins",
                                       style: TextStyle(
                                         color: Color(0xffffcd4c),
                                         fontSize: 16,

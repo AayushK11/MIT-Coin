@@ -118,9 +118,15 @@ class AuthViewSet(ViewSet):
                     s += i.amount
 
                 data["total_spent"] = s
-                data["total_cashback"] = user.rewards.all().annotate(total_cashback=Sum("amount"))
-                if(len(data["total_cashback"]) != 0):
-                    data["total_cashback"] = data["total_cashback"].last().total_cashback
+                rewards = user.rewards.all()
+
+                re = 0
+                for i in rewards:
+                    
+                    re += i.amount
+
+                data["total_cashback"] = re
+
                 data["coin_value"] = InitialCounters.objects.get().value_of_coin
                 message, status_code = {
                     "token": token.key,

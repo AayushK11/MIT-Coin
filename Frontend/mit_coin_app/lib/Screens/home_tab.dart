@@ -182,7 +182,7 @@ class _HomeTabState extends State<HomeTab> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              "${total_cashback != '[]' ? total_cashback : 0} coins",
+                              "${total_cashback != '[]' ? double.parse(total_cashback).toStringAsFixed(2) : 0} coins",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,

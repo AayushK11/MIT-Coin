@@ -185,7 +185,7 @@ class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "Pay 15 Coins",
+                          "Pay Now",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.white,

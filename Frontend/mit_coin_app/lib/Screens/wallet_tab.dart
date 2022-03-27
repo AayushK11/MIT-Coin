@@ -167,7 +167,7 @@ class _WalletTabState extends State<WalletTab> {
                                 Text(
                                   "9.763 INR",
                                   style: TextStyle(
-                                    color: Color(0xFFBB0A0A),
+                                    color: Color(0xFF0D6DC5),
                                     fontSize: 18,
                                     fontFamily: "Avenir",
                                     fontWeight: FontWeight.w800,

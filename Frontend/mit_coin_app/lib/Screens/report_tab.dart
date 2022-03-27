@@ -216,9 +216,9 @@ class _ReportTabState extends State<ReportTab> {
                     ),
                   ]),
             ),
-            upcomingEvent(context, "Student Clubs"),
-            upcomingEvent(context, "Events"),
-            upcomingEvent(context, "Vendors"),
+            upcomingEvent(context, "Student Clubs", 50),
+            upcomingEvent(context, "Events", 30),
+            upcomingEvent(context, "Vendors", 20),
             Container(
               alignment: Alignment.center,
               child: Image.asset(
@@ -234,7 +234,7 @@ class _ReportTabState extends State<ReportTab> {
   }
 }
 
-upcomingEvent(context, name) {
+upcomingEvent(context, name, percentage) {
   return Container(
     width: MediaQuery.of(context).size.width * 0.9,
     margin: const EdgeInsets.only(top: 5, bottom: 15, left: 20, right: 20),
@@ -358,9 +358,9 @@ upcomingEvent(context, name) {
                     ),
                     SizedBox(height: 3),
                     Text(
-                      "50%",
+                      "$percentage%",
                       style: TextStyle(
-                        color: Color(0xff4de088),
+                        color: percentage >= 50 ? Color(0xff4de088): percentage >=30 ? Color(0xffFFCD4D):Color(0xffFF7373),
                         fontSize: 16,
                         fontFamily: "Avenir",
                         fontWeight: FontWeight.w800,

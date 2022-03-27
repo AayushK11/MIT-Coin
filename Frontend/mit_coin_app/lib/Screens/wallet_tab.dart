@@ -80,7 +80,7 @@ class _WalletTabState extends State<WalletTab> {
                                 ),
                                 SizedBox(height: 2),
                                 Text(
-                                  "$wallet_balance coins",
+                                  "${double.parse(wallet_balance).toStringAsFixed(2)} coins",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,

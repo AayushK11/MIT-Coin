@@ -62,18 +62,19 @@ class _HomeTabState extends State<HomeTab> {
                             fontWeight: FontWeight.w800,
                           ),
                         ),
-                        TextButton(onPressed: (){
-
-        Navigator.push(
-          context,
-          PageTransition(
-            duration: Duration(milliseconds: 250),
-            type: PageTransitionType.rightToLeft,
-            child: ScannerScreen(),
-          ),
-        );
-                        }, child: 
-                        Image.asset('assets/images/scan.png'),),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              PageTransition(
+                                duration: Duration(milliseconds: 250),
+                                type: PageTransitionType.rightToLeft,
+                                child: ScannerScreen(),
+                              ),
+                            );
+                          },
+                          child: Image.asset('assets/images/scan.png'),
+                        ),
                       ],
                     ),
                   ),
@@ -298,10 +299,8 @@ class _HomeTabState extends State<HomeTab> {
                       ],
                     ),
                   ),
-                  tuckShop(context),
-                  tuckShop(context),
-                  tuckShop(context),
-                  tuckShop(context),
+                  tuckShop(context, "Tuck Shop", "26 Mar 2022", "1 coins"),
+                  tuckShop(context, "Tuck Shop", "27 Mar 2022", "2 coins"),
                   SizedBox(height: 20),
                 ],
               ),
@@ -313,7 +312,7 @@ class _HomeTabState extends State<HomeTab> {
   }
 }
 
-tuckShop(context) {
+tuckShop(context, name, date, cost) {
   return Container(
     margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
     width: MediaQuery.of(context).size.width,
@@ -365,7 +364,7 @@ tuckShop(context) {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Tuck Shop",
+                    name,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -375,10 +374,10 @@ tuckShop(context) {
                   ),
                   SizedBox(height: 3),
                   Text(
-                    "12 Mar 2022",
+                    date,
                     style: TextStyle(
                       color: Color(0xffc4c4c4),
-                      fontSize: 11,
+                      fontSize: 12,
                     ),
                   ),
                 ],
@@ -387,11 +386,11 @@ tuckShop(context) {
           ),
         ),
         Text(
-          "3 Coins",
+          cost,
           textAlign: TextAlign.right,
           style: TextStyle(
             color: Color(0xffffcd4c),
-            fontSize: 14,
+            fontSize: 16,
             fontFamily: "Avenir",
             fontWeight: FontWeight.w800,
           ),

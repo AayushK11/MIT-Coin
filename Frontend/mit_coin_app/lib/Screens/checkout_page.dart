@@ -68,7 +68,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                             Container(
                               margin: EdgeInsets.only(top: 10),
                               child: Text(
-                                "AI/ML workshop",
+                                "AI/ML Club",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
@@ -86,7 +86,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "by Robotics Club",
+                                    "by CSE IS",
                                     style: TextStyle(
                                       color: Color(0xffe5e5e5),
                                       fontSize: 15,
@@ -349,7 +349,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Text(
-                                "AI/ML workshop",
+                                "AI/ML Club",
                                 style: TextStyle(
                                   color: Color(0xffff7272),
                                   fontSize: 18,

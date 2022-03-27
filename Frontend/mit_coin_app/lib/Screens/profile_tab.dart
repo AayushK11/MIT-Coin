@@ -228,36 +228,8 @@ class _ProfileTabState extends State<ProfileTab> {
                       ),
                     ]),
               ),
-              upcomingEvent(context),
-              upcomingEvent(context),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                alignment: Alignment.centerLeft,
-                margin: EdgeInsets.only(top: 10, bottom: 5),
-                padding: EdgeInsets.fromLTRB(25, 0, 10, 10),
-                width: MediaQuery.of(context).size.width,
-                child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: Text(
-                          "Your Events",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontFamily: "Avenir",
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
-                      ),
-                    ]),
-              ),
-              upcomingEvent(context),
-              upcomingEvent(context),
+              upcomingEvent(context, "AI/ML Club", "by CSE IS"),
+              upcomingEvent(context, "Web Design Club", "by CSE Core"),
             ],
           ),
         ),
@@ -266,7 +238,7 @@ class _ProfileTabState extends State<ProfileTab> {
   }
 }
 
-upcomingEvent(context) {
+upcomingEvent(context, name, by) {
   return Container(
     // width: MediaQuery.of(context).size.width * 0.9,
     height: MediaQuery.of(context).size.width * 0.25,
@@ -297,7 +269,7 @@ upcomingEvent(context) {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "AI/ML workshop",
+                  name,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -307,7 +279,7 @@ upcomingEvent(context) {
                 ),
                 SizedBox(height: 6),
                 Text(
-                  "by Robotics Club",
+                  by,
                   style: TextStyle(
                     color: Color(0xffe5e5e5),
                     fontSize: 15,

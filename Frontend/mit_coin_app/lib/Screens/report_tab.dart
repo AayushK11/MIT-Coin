@@ -21,198 +21,211 @@ class _ReportTabState extends State<ReportTab> {
               width: MediaQuery.of(context).size.width,
               child: Container(
                 padding: EdgeInsets.fromLTRB(25, 20, 10, 0),
-                child: Text(
-                  "Discover Student Clubs",
+                child: (Text(
+                  "Your March 2022 Report",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
                     fontFamily: "Avenir",
                     fontWeight: FontWeight.w800,
                   ),
-                ),
+                )),
               ),
             ),
             Container(
-              padding: EdgeInsets.only(bottom: 20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Color(0xff151321),
+              ),
+              margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+              padding:
+                  EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
               width: MediaQuery.of(context).size.width,
-              child: SizedBox(
-                width: 305,
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(25, 0, 10, 0),
-                  child: Text(
-                    "Be an active part of various student clubs in MIT",
-                    style: TextStyle(
-                      color: Color(0xffc4c4c4),
-                      fontFamily: "Avenir",
-                      fontSize: 15,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    width: 350,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Total Spent",
+                              style: TextStyle(
+                                color: Color(0xFFFFFFFF),
+                                fontSize: 14,
+                                fontFamily: "Avenir",
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  child: (Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        width: 18,
+                                        height: 18,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Image.asset(
+                                              'assets/images/LogoFlat.png',
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(width: 5),
+                                      Container(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          "100 Coins",
+                                          style: TextStyle(
+                                            color: Color(0xffffcd4c),
+                                            fontSize: 16,
+                                            fontFamily: "Avenir",
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 43),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Rewards Earned",
+                              style: TextStyle(
+                                color: Color(0xFFFFFFFF),
+                                fontSize: 14,
+                                fontFamily: "Avenir",
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  child: (Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Container(
+                                        width: 18,
+                                        height: 18,
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Image.asset(
+                                              'assets/images/LogoFlat.png',
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(width: 5),
+                                      Container(
+                                        alignment: Alignment.centerLeft,
+                                        child: Text(
+                                          "50 Coins",
+                                          style: TextStyle(
+                                            color: Color(0xffffcd4c),
+                                            fontSize: 16,
+                                            fontFamily: "Avenir",
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
-                ),
+                ],
               ),
             ),
             Container(
-              margin: EdgeInsets.only(bottom: 30),
-              child: SingleChildScrollView(
-                child: Row(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              alignment: Alignment.centerLeft,
+              margin: EdgeInsets.only(top: 10, bottom: 5),
+              padding: EdgeInsets.fromLTRB(25, 15, 10, 10),
+              width: MediaQuery.of(context).size.width,
+              child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: EdgeInsets.only(left: 25),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(47),
-                        color: Colors.white,
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 6,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "School of Engineering",
-                            style: TextStyle(
-                              color: Color(0xff212230),
-                              fontSize: 13,
-                              fontFamily: "Avenir",
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: 12),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(47),
-                        border: Border.all(
+                      child: Text(
+                        "Spending Breakdown",
+                        style: TextStyle(
                           color: Colors.white,
-                          width: 0.75,
+                          fontSize: 20,
+                          fontFamily: "Avenir",
+                          fontWeight: FontWeight.w800,
                         ),
                       ),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 6,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "School of Design",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 13,
-                              fontFamily: "Avenir",
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
                     ),
-                    SizedBox(width: 12),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(47),
-                        border: Border.all(
-                          color: Colors.white,
-                          width: 0.75,
-                        ),
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 6,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "School of Food tech",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 13,
-                              fontFamily: "Avenir",
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: 12),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(47),
-                        border: Border.all(
-                          color: Colors.white,
-                          width: 0.75,
-                        ),
-                      ),
-                      padding: const EdgeInsets.all(6),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "College of Fine Arts",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 13,
-                              fontFamily: "Avenir",
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(width: 20),
-                  ],
-                ),
-                scrollDirection: Axis.horizontal,
+                  ]),
+            ),
+            upcomingEvent(context, "Student Clubs"),
+            upcomingEvent(context, "Events"),
+            upcomingEvent(context, "Vendors"),
+            Container(
+              alignment: Alignment.center,
+              child: Image.asset(
+                'assets/images/report_comment.png',
+                fit: BoxFit.contain,
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  margin: EdgeInsets.only(left: 25),
-                  child: Text(
-                    "MIT School of Engineering",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontFamily: "Avenir",
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 25),
-                  child: Text(
-                    "(11)",
-                    style: TextStyle(
-                      color: Color(0xffc4c4c4),
-                      fontSize: 15,
-                      fontFamily: "Avenir",
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            upcomingEvent(context),
-            upcomingEvent(context),
-            upcomingEvent(context),
-            upcomingEvent(context),
-            upcomingEvent(context),
-            SizedBox(height: 20),
+            )
           ],
         ),
       ),
@@ -221,14 +234,21 @@ class _ReportTabState extends State<ReportTab> {
   }
 }
 
-upcomingEvent(context) {
+upcomingEvent(context, name) {
   return Container(
+    height: MediaQuery.of(context).size.width * 0.3,
+    width: MediaQuery.of(context).size.width * 0.9,
+    margin: const EdgeInsets.only(top: 5, bottom: 15, left: 20, right: 20),
+    // alignment: Alignment.center,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(4),
       gradient: LinearGradient(
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
-        colors: [Color(0xff005e2b), Color(0xff26674c)],
+        colors: [
+          Color(0xff151321),
+          Color(0xff151321),
+        ],
       ),
     ),
     padding: const EdgeInsets.all(16),
@@ -238,97 +258,106 @@ upcomingEvent(context) {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          width: 296,
+          padding: EdgeInsets.only(left: 20, right: 25),
           child: Row(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                "Student Clubs",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontFamily: "Avenir",
-                  fontWeight: FontWeight.w800,
+              Container(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  name,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontFamily: "Avenir",
+                    fontWeight: FontWeight.w800,
+                  ),
+                  textAlign: TextAlign.left,
                 ),
               ),
-              SizedBox(width: 176),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 16,
-                    height: 16,
-                    padding: const EdgeInsets.only(
-                      bottom: 4,
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Transform.rotate(
-                          angle: 3.14,
-                          child: Container(
-                            width: 12.31,
-                            height: 12.31,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Color(0xffffcd4c),
-                            ),
+              SizedBox(width: 100),
+              Container(
+                alignment: Alignment.centerRight,
+                child: Row(
+                  // mainAxisSize: MainAxisSize.min,
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  // crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 16,
+                      height: 16,
+                      padding: const EdgeInsets.only(
+                        bottom: 4,
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 18,
+                                height: 18,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/LogoFlat.png',
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: 5),
+                              Container(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  "10 Coins",
+                                  style: TextStyle(
+                                    color: Color(0xffffcd4c),
+                                    fontSize: 16,
+                                    fontFamily: "Avenir",
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ),
-                        SizedBox(height: 2446.07),
-                        Container(
-                          width: 16,
-                          height: 16,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            gradient: LinearGradient(
-                              begin: Alignment.centerRight,
-                              end: Alignment.centerLeft,
-                              colors: [Color(0xffffcd4c), Color(0xfff3af00)],
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 2446.07),
-                        Container(
-                          width: 7,
-                          height: 5.65,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: FlutterLogo(size: 5.653942584991455),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(width: 5),
-                  Text(
-                    "50 coins",
-                    style: TextStyle(
-                      color: Color(0xffffcd4c),
-                      fontSize: 14,
-                      fontFamily: "Avenir",
-                      fontWeight: FontWeight.w800,
+                    SizedBox(width: 5),
+                    Text(
+                      "50 coins",
+                      style: TextStyle(
+                        color: Color(0xffffcd4c),
+                        fontSize: 14,
+                        fontFamily: "Avenir",
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
-        SizedBox(height: 12),
+        SizedBox(height: 6),
         Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              width: 295.50,
+              width: 300,
               height: 0.50,
               decoration: BoxDecoration(
                 border: Border.all(

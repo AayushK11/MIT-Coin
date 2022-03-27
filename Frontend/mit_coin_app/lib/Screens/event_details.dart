@@ -72,7 +72,7 @@ class _EventDetailsState extends State<EventDetails> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "AI/ML workshop",
+                                  "AI/ML Club",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 18,
@@ -82,7 +82,7 @@ class _EventDetailsState extends State<EventDetails> {
                                 ),
                                 SizedBox(height: 6),
                                 Text(
-                                  "by Robotics Club",
+                                  "by CSE IS",
                                   style: TextStyle(
                                     color: Color(0xffe5e5e5),
                                     fontSize: 15,

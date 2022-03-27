@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:localstorage/localstorage.dart';
 import 'package:mit_coin_app/Screens/event_details.dart';
+import 'package:mit_coin_app/Screens/qr_scanner.dart';
 import 'package:page_transition/page_transition.dart';
 
 class HomeTab extends StatefulWidget {
@@ -61,14 +62,14 @@ class _HomeTabState extends State<HomeTab> {
                             fontWeight: FontWeight.w800,
                           ),
                         ),
-                        ElevatedButton(onPressed: (){
+                        TextButton(onPressed: (){
 
         Navigator.push(
           context,
           PageTransition(
             duration: Duration(milliseconds: 250),
             type: PageTransitionType.rightToLeft,
-            child: EventDetails(),
+            child: ScannerScreen(),
           ),
         );
                         }, child: 

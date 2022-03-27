@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:localstorage/localstorage.dart';
 import 'package:mit_coin_app/Screens/checkout_security_page.dart';
 import 'package:page_transition/page_transition.dart';
+
 class CheckoutAmountScreen extends StatefulWidget {
-  const CheckoutAmountScreen({ Key? key }) : super(key: key);
+  const CheckoutAmountScreen({Key? key}) : super(key: key);
 
   @override
   State<CheckoutAmountScreen> createState() => _CheckoutAmountScreenState();
 }
 
 class _CheckoutAmountScreenState extends State<CheckoutAmountScreen> {
+  final LocalStorage my_storage = new LocalStorage('main');
+  var amount;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,6 +86,13 @@ class _CheckoutAmountScreenState extends State<CheckoutAmountScreen> {
                                   color: Color(0xff696969)),
                               child: Container(
                                 child: TextFormField(
+                                  onChanged: (value) {
+                                    print(value);
+                                    setState(() {
+                                      amount = value;
+                                    });
+                                    print(amount);
+                                  },
                                   decoration: const InputDecoration(
                                       border: InputBorder.none,
                                       contentPadding: EdgeInsets.all(10)),
@@ -102,6 +113,7 @@ class _CheckoutAmountScreenState extends State<CheckoutAmountScreen> {
                 margin: EdgeInsets.only(bottom: 40),
                 child: TextButton(
                   onPressed: () {
+                    my_storage.setItem('amount', amount);
                     Navigator.push(
                       context,
                       PageTransition(

@@ -1,3 +1,4 @@
+import 'package:localstorage/localstorage.dart';
 import 'package:mit_coin_app/Screens/checkout_amount_page.dart';
 import 'package:mit_coin_app/Screens/checkout_page.dart';
 import 'package:mit_coin_app/Screens/checkout_security_page.dart';
@@ -35,6 +36,7 @@ class QRViewExample extends StatefulWidget {
 }
 
 class _QRViewExampleState extends State<QRViewExample> {
+  final LocalStorage my_storage = new LocalStorage('main');
   Barcode? result;
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
@@ -90,6 +92,7 @@ class _QRViewExampleState extends State<QRViewExample> {
       setState(() {
         result = scanData;
       });
+      my_storage.setItem('receiver', scanData!.code);
       Navigator.push(
         context,
         PageTransition(

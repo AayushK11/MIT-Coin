@@ -236,7 +236,6 @@ class _ReportTabState extends State<ReportTab> {
 
 upcomingEvent(context, name) {
   return Container(
-    height: MediaQuery.of(context).size.width * 0.3,
     width: MediaQuery.of(context).size.width * 0.9,
     margin: const EdgeInsets.only(top: 5, bottom: 15, left: 20, right: 20),
     // alignment: Alignment.center,
@@ -277,7 +276,6 @@ upcomingEvent(context, name) {
                   textAlign: TextAlign.left,
                 ),
               ),
-              SizedBox(width: 100),
               Container(
                 alignment: Alignment.centerRight,
                 child: Row(
@@ -286,67 +284,41 @@ upcomingEvent(context, name) {
                   // crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      width: 16,
-                      height: 16,
                       padding: const EdgeInsets.only(
                         bottom: 4,
                       ),
-                      child: Column(
+                      child: Row(
                         mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 18,
-                                height: 18,
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Image.asset(
-                                      'assets/images/LogoFlat.png',
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ],
-                                ),
+                          Container(
+                            width: 18,
+                            height: 18,
+                            child: Image.asset(
+                              'assets/images/LogoFlat.png',
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                          SizedBox(width: 5),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "10 Coins",
+                              style: TextStyle(
+                                color: Color(0xffffcd4c),
+                                fontSize: 16,
+                                fontFamily: "Avenir",
+                                fontWeight: FontWeight.w800,
                               ),
-                              SizedBox(width: 5),
-                              Container(
-                                alignment: Alignment.centerLeft,
-                                child: Text(
-                                  "10 Coins",
-                                  style: TextStyle(
-                                    color: Color(0xffffcd4c),
-                                    fontSize: 16,
-                                    fontFamily: "Avenir",
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(width: 5),
-                    Text(
-                      "50 coins",
-                      style: TextStyle(
-                        color: Color(0xffffcd4c),
-                        fontSize: 14,
-                        fontFamily: "Avenir",
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

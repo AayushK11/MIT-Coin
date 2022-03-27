@@ -147,7 +147,7 @@ class AuthViewSet(ViewSet):
             from_user=from_user,
             to_user=to_user,
             amount=amount,
-            description=description,
+            description="default desc",
         )
         from_user.save()
         to_user.save()

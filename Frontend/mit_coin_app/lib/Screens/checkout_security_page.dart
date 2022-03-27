@@ -15,13 +15,15 @@ class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
   final LocalStorage my_storage = new LocalStorage('main');
 
   Future<void> makeGetRequest() async {
-    final url = Uri.parse('https://api.publicapis.org/entries');
+    final baseURL = 'http://dcb5-114-143-215-162.ngrok.io/';
+    final sender = my_storage.getItem('wallet_link');
+    final receiver = my_storage.getItem('receiver');
+    final amount = my_storage.getItem('amount');
+    final url = Uri.parse('$baseURL/transact/$sender/$receiver/$amount');
     Response response = await get(url);
     print('Status code: ${response.statusCode}');
     print('Headers: ${response.headers}');
     print('Body: ${response.body}');
-    print(my_storage.getItem('receiver'));
-    print(my_storage.getItem('amount'));
   }
 
   @override

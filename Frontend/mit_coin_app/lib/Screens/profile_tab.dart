@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mit_coin_app/Screens/event_details.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:localstorage/localstorage.dart';
 
 class ProfileTab extends StatefulWidget {
   const ProfileTab({Key? key}) : super(key: key);
@@ -10,6 +11,22 @@ class ProfileTab extends StatefulWidget {
 }
 
 class _ProfileTabState extends State<ProfileTab> {
+  final LocalStorage my_storage = new LocalStorage('main');
+  var first_name = 'Tejas';
+  var last_name = 'Mandre';
+  var wallet_balance = '500';
+  var email = 'shantanu@mit.com';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    first_name = my_storage.getItem('first_name');
+    last_name = my_storage.getItem('last_name');
+    wallet_balance = my_storage.getItem('wallet_balance');
+    email = my_storage.getItem('email');
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -69,7 +86,7 @@ class _ProfileTabState extends State<ProfileTab> {
                                 ),
                               ),
                               Text(
-                                "Tejas Mandre",
+                                "$first_name $last_name",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18,
@@ -124,7 +141,7 @@ class _ProfileTabState extends State<ProfileTab> {
                           ),
                         ),
                         Text(
-                          "putinismydaddy@gmail.com",
+                          email,
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,
@@ -183,7 +200,7 @@ class _ProfileTabState extends State<ProfileTab> {
                                   Container(
                                     alignment: Alignment.centerLeft,
                                     child: Text(
-                                      "500 Coins",
+                                      "$wallet_balance Coins",
                                       style: TextStyle(
                                         color: Color(0xffffcd4c),
                                         fontSize: 16,

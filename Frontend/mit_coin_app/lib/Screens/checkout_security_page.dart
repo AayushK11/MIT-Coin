@@ -17,9 +17,10 @@ class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
   Future<void> makeGetRequest() async {
     final baseURL = 'http://dcb5-114-143-215-162.ngrok.io/';
     final sender = my_storage.getItem('wallet_link');
-    final receiver = my_storage.getItem('receiver');
+    final receiver = my_storage.getItem('receiver').substring(7);
     final amount = my_storage.getItem('amount');
-    final url = Uri.parse('$baseURL/transact/$sender/$receiver/$amount');
+    final url =
+        Uri.parse('$baseURL/accounts/transact/$sender/$receiver/$amount');
     Response response = await get(url);
     print('Status code: ${response.statusCode}');
     print('Headers: ${response.headers}');

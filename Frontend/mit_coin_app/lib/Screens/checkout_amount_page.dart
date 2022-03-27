@@ -87,6 +87,8 @@ class _CheckoutAmountScreenState extends State<CheckoutAmountScreen> {
                               child: Container(
                                 child: TextFormField(
                                   onChanged: (value) {
+                                    my_storage.setItem('amount', value);
+                                    print('hello');
                                     print(value);
                                     setState(() {
                                       amount = value;
@@ -113,7 +115,6 @@ class _CheckoutAmountScreenState extends State<CheckoutAmountScreen> {
                 margin: EdgeInsets.only(bottom: 40),
                 child: TextButton(
                   onPressed: () {
-                    my_storage.setItem('amount', amount);
                     Navigator.push(
                       context,
                       PageTransition(

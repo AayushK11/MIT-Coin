@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:localstorage/localstorage.dart';
 import 'package:mit_coin_app/Screens/success_massage.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -10,6 +11,14 @@ class CheckoutSecurityScreen extends StatefulWidget {
 }
 
 class _CheckoutSecurityScreenState extends State<CheckoutSecurityScreen> {
+  final LocalStorage my_storage = new LocalStorage('main');
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    print(my_storage.getItem('receiver'));
+    print(my_storage.getItem('amount'));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
